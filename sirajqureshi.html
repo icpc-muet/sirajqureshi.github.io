@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Siraj Uddin Qureshi — Cybersecurity & Deep Learning</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav fixed-top">
+    <div class="container d-flex justify-content-between align-items-center py-2">
+      <div class="brand fw-bold text-light"><i class="fa-solid fa-shield-halved me-2"></i>Dr. Siraj U. Qureshi</div>
+      <div>
+        <a href="#home" class="nav-link text-light">Home</a>
+        <a href="#about" class="nav-link text-light">About</a>
+        <a href="#projects" class="nav-link text-light">Projects</a>
+        <a href="#research" class="nav-link text-light">Research</a>
+        <a href="#contact" class="nav-link text-light">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero-section d-flex align-items-center text-center text-light">
+    <div class="container py-5">
+      <h1 class="display-4 fw-bold mb-3">Dr. Siraj Uddin Qureshi</h1>
+      <p class="lead mb-4">Cybersecurity & Deep Learning Researcher | Network Forensics | AI-driven Threat Analysis</p>
+      <a href="#contact" class="btn btn-primary me-2">Contact Me</a>
+      <a href="#projects" class="btn btn-outline-light">View Projects</a>
+    </div>
+  </header>
+
+  <section id="about" class="py-5 bg-dark text-light">
+    <div class="container">
+      <h2 class="mb-4"><i class="fa-solid fa-user"></i> About Me</h2>
+      <p>PhD graduate and accomplished researcher in Software Engineering with expertise in deep learning, machine learning, and cybersecurity. Published in high-impact journals and recognized with multiple innovation awards. Specialized in network forensics, anomaly detection, and malware analysis.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="py-5">
+    <div class="container text-light">
+      <h2 class="mb-4"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light h-100">
+            <img src="https://source.unsplash.com/600x400/?cybersecurity" class="card-img-top" alt="Cybersecurity Project" />
+            <div class="card-body">
+              <h5 class="card-title">IoT DDoS Detection Framework</h5>
+              <p class="card-text">Developed a deep learning-powered intrusion detection system using LSTM-GRU hybrid architecture for IoT network protection.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light h-100">
+            <img src="https://source.unsplash.com/600x400/?machine-learning,network" class="card-img-top" alt="ML Project" />
+            <div class="card-body">
+              <h5 class="card-title">Malware Behavior Classifier</h5>
+              <p class="card-text">Implemented CNN-based malware classification for identifying advanced persistent threats using dynamic analysis logs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light h-100">
+            <img src="https://source.unsplash.com/600x400/?data,analysis" class="card-img-top" alt="Data Project" />
+            <div class="card-body">
+              <h5 class="card-title">Network Traffic Visualizer</h5>
+              <p class="card-text">Built a visualization dashboard that analyzes real-time network packet flows using open-source tools integrated with Python backend.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="py-5 bg-dark text-light">
+    <div class="container">
+      <h2 class="mb-4"><i class="fa-solid fa-flask"></i> Research Publications</h2>
+      <ul>
+        <li>Systematic Review of Deep Learning Solutions for Malware Detection and Forensic Analysis in IoT (JKSUCIS, 2024)</li>
+        <li>A Hybrid DL-based Detection Mechanism for Cyber Threats in Secure Networks (IEEE Access, 2021)</li>
+        <li>Analysis of Challenges in Modern Network Forensic Framework (SCN, 2021)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5">
+    <div class="container text-light">
+      <h2 class="mb-4"><i class="fa-solid fa-envelope"></i> Contact Me</h2>
+      <form action="https://formspree.io/f/xzbyrjgo" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="col-12">
+          <textarea name="message" rows="4" class="form-control" placeholder="Your Message" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-center text-light py-3">
+    <p>© <span id="year"></span> Dr. Siraj Uddin Qureshi — All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* style.css — Dark Cybersecurity Theme */
+
+body {
+  background-color: #0b0f19;
+  color: #e6eaf2;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.nav {
+  background: rgba(10, 15, 25, 0.9);
+  border-bottom: 1px solid #23304a;
+  backdrop-filter: blur(10px);
+}
+.nav-link {
+  margin-left: 15px;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: #2dd4bf !important;
+}
+.nav-link.active {
+  color: #2dd4bf !important;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+  min-height: 100vh;
+  padding-top: 120px;
+  background-image: radial-gradient(circle at 30% 20%, rgba(96,165,250,0.1), transparent 40%), 
+                    radial-gradient(circle at 80% 10%, rgba(45,212,191,0.1), transparent 40%);
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.card {
+  border: 1px solid #23304a;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+footer {
+  border-top: 1px solid #23304a;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+  border: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(90deg, #2dd4bf, #0ea5e9);
+}
+
+.btn-outline-light {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+.btn-outline-light:hover {
+  background-color: #2dd4bf;
+  color: #0b0f19;
+}
+
+.form-control {
+  background-color: #0f172a;
+  color: #e6eaf2;
+  border: 1px solid #23304a;
+  border-radius: 10px;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(45,212,191,0.25);
+  border-color: #2dd4bf;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding-top: 160px;
+  }
+}
