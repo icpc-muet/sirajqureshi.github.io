@@ -11,6 +11,28 @@
     height="100%"
     style="border:none;">
   </iframe>
+  <iframe 
+  src="https://icpc.app.n8n.cloud/webhook/dd54ad42-b435-4690-ae39-fb0d817268f0/chat" 
+  width="100%" 
+  height="600px" 
+  style="border: 1px solid #ccc; border-radius: 8px;"
+  title="MUET ICPC Student Helpdesk">
+</iframe>
+Alternative - Popup Chat Widget:
+
+<script>
+  window.addEventListener('load', function() {
+    const chatBtn = document.createElement('button');
+    chatBtn.innerHTML = '💬 Student Help';
+    chatBtn.style.cssText = 'position:fixed;bottom:20px;right:20px;padding:15px 25px;background:#0066cc;color:white;border:none;border-radius:50px;cursor:pointer;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:9999';
+    
+    chatBtn.onclick = function() {
+      const chatWindow = window.open('YOUR_CHAT_URL_HERE', 'ICPC Chat', 'width=400,height=600');
+    };
+    
+    document.body.appendChild(chatBtn);
+  });
+</script>
 </body>
 </html>
 
