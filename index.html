@@ -3,6 +3,10 @@
 <head>
   <title>Siraj Qureshi | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- n8n Chat Widget Styles -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
   <style>
     .chat-button {
       position: fixed;
@@ -30,7 +34,10 @@
     }
   </style>
 </head>
+
 <body style="margin:0; height:100vh;">
+
+  <!-- Your Portfolio Iframe -->
   <iframe
     src="https://bespoke-folio-flair-73580.lovable.app"
     width="100%"
@@ -38,25 +45,30 @@
     style="border:none;">
   </iframe>
 
-  <!-- Chat Button -->
-  <button class="chat-button" onclick="openChat()" title="ICPC Student Help">
+  <!-- Floating Chat Bubble -->
+  <button class="chat-button" onclick="toggleChat()" title="ICPC Student Help">
     💬
   </button>
 
-  <script>
-    function openChat() {
-      // Open chat in a popup window
-      const width = 400;
-      const height = 600;
-      const left = window.screen.width - width - 50;
-      const top = window.screen.height - height - 100;
-      
-      window.open(
-        'https://icpc.app.n8n.cloud/webhook/795d996c-63e1-4bb1-809b-79cc72a52620/chat',
-        'ICPC Student Chat',
-        `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
-      );
+  <!-- Chat Container (hidden initially) -->
+  <div id="n8n-chat"></div>
+
+  <!-- n8n Chat Widget Script -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    const chat = createChat({
+      webhookUrl: "https://icpc.app.n8n.cloud/webhook/795d996c-63e1-4bb1-809b-79cc72a52620/chat",
+      target: "#n8n-chat",
+      mode: "window"
+    });
+
+    // Show/hide chat window when clicking the bubble
+    function toggleChat() {
+      const container = document.querySelector("#n8n-chat");
+      container.style.display = container.style.display === "block" ? "none" : "block";
     }
   </script>
+
 </body>
 </html>
