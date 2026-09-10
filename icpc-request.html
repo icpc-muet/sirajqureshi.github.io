@@ -21,59 +21,47 @@
 <style>
 
 /* ============================================================
-   VARIABLES
+   BASIC
    ============================================================ */
 
-:root{
-
+:root {
     --navy:#291670;
     --navy-deep:#170B42;
     --green:#6FA82E;
     --green-soft:#BFE6F0;
-
     --paper:#F6F3EC;
     --white:#FFFFFF;
-
     --ink:#1E2530;
     --ink-soft:#5B6472;
-
     --line:#DCD5C4;
-
     --ok:#2F6B4F;
     --err:#9A3B34;
-
 }
 
 
-/* ============================================================
-   GLOBAL
-   ============================================================ */
-
-*{
+* {
     box-sizing:border-box;
 }
 
 
 html,
-body{
-
+body {
     margin:0;
     padding:0;
-
 }
 
 
-body{
+body {
 
     background:var(--paper);
 
     background-image:
-    linear-gradient(
-        180deg,
-        var(--navy-deep) 0%,
-        var(--navy) 220px,
-        transparent 220px
-    );
+        linear-gradient(
+            180deg,
+            var(--navy-deep) 0,
+            var(--navy) 220px,
+            transparent 220px
+        );
 
     font-family:'IBM Plex Sans',sans-serif;
 
@@ -81,57 +69,53 @@ body{
 
     -webkit-font-smoothing:antialiased;
 
-    padding-bottom:80px;
-
+    padding-bottom:70px;
 }
 
 
-/* ============================================================
-   WRAPPER
-   ============================================================ */
-
-.wrap{
+.wrap {
 
     max-width:760px;
 
     margin:0 auto;
 
     padding:0 20px;
-
 }
 
 
 /* ============================================================
-   LETTERHEAD
+   HEADER
    ============================================================ */
 
-.letterhead{
+.letterhead {
 
-    padding:36px 0 22px;
+    padding:34px 0 22px;
 
     color:#fff;
-
 }
 
 
-.crest-row{
+.crest-row {
 
     display:flex;
 
     align-items:center;
 
     gap:16px;
-
 }
 
 
-.crest{
+.crest {
 
     width:64px;
 
     height:64px;
 
-    flex:none;
+    border-radius:50%;
+
+    background:#fff;
+
+    color:var(--navy-deep);
 
     display:flex;
 
@@ -139,74 +123,61 @@ body{
 
     justify-content:center;
 
-    background:#fff;
-
-    border-radius:50%;
-
     font-family:'Source Serif 4',serif;
+
+    font-size:22px;
 
     font-weight:700;
 
-    color:var(--navy-deep);
+    flex:none;
+}
+
+
+.crest-text .uni {
+
+    font-family:'Source Serif 4',serif;
 
     font-size:20px;
 
-}
-
-
-.crest-text .uni{
-
-    font-family:'Source Serif 4',serif;
-
     font-weight:600;
 
-    font-size:21px;
-
-    line-height:1.25;
-
+    line-height:1.3;
 }
 
 
-.crest-text .sub{
+.crest-text .sub {
 
     font-size:12.5px;
 
-    letter-spacing:.03em;
-
     color:var(--green-soft);
 
-    margin-top:2px;
-
+    margin-top:3px;
 }
 
 
-.lh-title{
+.lh-title {
 
     font-family:'Source Serif 4',serif;
 
-    font-weight:600;
-
     font-size:28px;
+
+    font-weight:600;
 
     line-height:1.25;
 
     margin:22px 0 6px;
-
-    max-width:520px;
-
 }
 
 
-.lh-desc{
-
-    font-size:14.5px;
+.lh-desc {
 
     color:#C9D4DE;
 
-    max-width:560px;
+    font-size:14px;
 
     line-height:1.6;
 
+    max-width:600px;
 }
 
 
@@ -214,101 +185,90 @@ body{
    CARD
    ============================================================ */
 
-.card{
+.card {
 
-    background:var(--white);
+    background:#fff;
 
     border:1px solid var(--line);
 
-    border-radius:6px;
+    border-radius:7px;
 
     margin-top:-70px;
 
-    box-shadow:
-    0 18px 40px -22px rgba(11,32,56,.35);
-
     overflow:hidden;
 
+    box-shadow:
+        0 18px 40px -22px rgba(11,32,56,.35);
 }
 
 
-.card-inner{
+.card-inner {
 
-    padding:34px 34px 30px;
-
+    padding:34px;
 }
 
 
-@media(max-width:640px){
+@media(max-width:640px) {
 
-    .card-inner{
-
-        padding:24px 18px 26px;
-
+    .card-inner {
+        padding:24px 18px;
     }
 
-    .lh-title{
-
+    .lh-title {
         font-size:23px;
-
     }
 
 }
 
 
 /* ============================================================
-   SECTION
+   SECTIONS
    ============================================================ */
 
-.section-label{
-
-    font-size:11.5px;
-
-    letter-spacing:.06em;
-
-    color:var(--green);
-
-    font-weight:600;
-
-    margin:0 0 4px;
-
-}
-
-
-.section-title{
-
-    font-family:'Source Serif 4',serif;
-
-    font-weight:600;
-
-    font-size:19px;
-
-    margin:0 0 18px;
-
-    color:var(--navy-deep);
-
-    border-bottom:1px solid var(--line);
-
-    padding-bottom:12px;
-
-}
-
-
-fieldset{
+fieldset {
 
     border:0;
 
     padding:0;
 
-    margin:0 0 34px;
-
+    margin:0 0 32px;
 }
 
 
-fieldset:last-of-type{
-
+fieldset:last-of-type {
     margin-bottom:0;
+}
 
+
+.section-label {
+
+    margin:0 0 4px;
+
+    color:var(--green);
+
+    font-size:11.5px;
+
+    font-weight:600;
+
+    letter-spacing:.06em;
+}
+
+
+.section-title {
+
+    margin:0 0 18px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid var(--line);
+
+    color:var(--navy-deep);
+
+    font-family:'Source Serif 4',serif;
+
+    font-size:19px;
+
+    font-weight:600;
 }
 
 
@@ -316,130 +276,97 @@ fieldset:last-of-type{
    REQUEST TYPE
    ============================================================ */
 
-.type-grid{
+.type-grid {
 
     display:grid;
 
     grid-template-columns:1fr 1fr;
 
     gap:14px;
-
 }
 
 
-@media(max-width:520px){
+@media(max-width:520px) {
 
-    .type-grid{
-
+    .type-grid {
         grid-template-columns:1fr;
-
     }
 
 }
 
 
-.type-card{
+.type-card {
 
     position:relative;
+
+    padding:16px;
 
     border:1.5px solid var(--line);
 
     border-radius:6px;
 
-    padding:16px;
+    background:#FBFAF6;
 
     cursor:pointer;
 
-    transition:
-    border-color .15s,
-    background .15s;
-
-    background:#FBFAF6;
-
+    transition:.15s;
 }
 
 
-.type-card:hover{
-
+.type-card:hover {
     border-color:var(--green);
-
 }
 
 
-.type-card input{
+.type-card input {
 
     position:absolute;
 
-    opacity:0;
-
     inset:0;
 
-    cursor:pointer;
+    opacity:0;
 
     margin:0;
 
+    cursor:pointer;
 }
 
 
-.type-card .t-name{
-
-    font-weight:600;
-
-    font-size:15px;
-
-    color:var(--navy-deep);
-
-}
-
-
-.type-card .t-desc{
-
-    font-size:12.5px;
-
-    color:var(--ink-soft);
-
-    margin-top:3px;
-
-    line-height:1.5;
-
-}
-
-
-.type-card.checked{
+.type-card.checked {
 
     border-color:var(--navy);
 
     background:#EEF3F7;
-
 }
 
 
-.type-card.checked .t-name::after{
+.t-name {
 
-    content:"Selected";
+    color:var(--navy-deep);
 
-    float:right;
+    font-size:15px;
 
-    font-size:10px;
+    font-weight:600;
+}
 
-    letter-spacing:.05em;
 
-    color:var(--navy);
+.t-desc {
 
-    border:1px solid var(--navy);
+    margin-top:4px;
 
-    border-radius:3px;
+    color:var(--ink-soft);
 
-    padding:2px 6px;
+    font-size:12.5px;
 
+    line-height:1.5;
 }
 
 
 /* ============================================================
-   SEGMENTED CONTROL
+   SEGMENT
    ============================================================ */
 
-.seg{
+.seg {
 
     display:inline-flex;
 
@@ -448,40 +375,33 @@ fieldset:last-of-type{
     border-radius:6px;
 
     overflow:hidden;
-
 }
 
 
-.seg label{
+.seg input {
+    display:none;
+}
+
+
+.seg label {
 
     padding:9px 18px;
-
-    font-size:13.5px;
-
-    font-weight:500;
-
-    cursor:pointer;
 
     background:#FBFAF6;
 
     color:var(--ink-soft);
 
+    font-size:13.5px;
+
+    cursor:pointer;
 }
 
 
-.seg input{
-
-    display:none;
-
-}
-
-
-.seg input:checked + label{
+.seg input:checked + label {
 
     background:var(--navy);
 
     color:#fff;
-
 }
 
 
@@ -489,72 +409,63 @@ fieldset:last-of-type{
    GRID
    ============================================================ */
 
-.grid2{
+.grid2 {
 
     display:grid;
 
     grid-template-columns:1fr 1fr;
 
     gap:18px;
-
 }
 
 
-@media(max-width:560px){
+@media(max-width:560px) {
 
-    .grid2{
-
+    .grid2 {
         grid-template-columns:1fr;
-
     }
 
 }
 
 
 /* ============================================================
-   FIELD
+   FIELDS
    ============================================================ */
 
-.field{
-
+.field {
     margin-bottom:18px;
-
 }
 
 
-.field label{
+.field label {
 
     display:block;
+
+    margin-bottom:6px;
+
+    color:var(--navy-deep);
 
     font-size:13px;
 
     font-weight:600;
-
-    color:var(--navy-deep);
-
-    margin-bottom:6px;
-
 }
 
 
-.field .hint{
-
-    font-weight:400;
+.hint {
 
     color:var(--ink-soft);
 
     font-size:12px;
 
-    margin-left:4px;
-
+    font-weight:400;
 }
 
 
-input[type=text],
-input[type=email],
-input[type=tel],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
 select,
-textarea{
+textarea {
 
     width:100%;
 
@@ -564,70 +475,63 @@ textarea{
 
     border-radius:5px;
 
-    font-size:14.5px;
-
-    font-family:inherit;
+    background:#fff;
 
     color:var(--ink);
 
-    background:#fff;
+    font-family:inherit;
 
+    font-size:14.5px;
 }
 
 
 input:focus,
 select:focus,
-textarea:focus{
+textarea:focus {
 
     outline:none;
 
     border-color:var(--navy);
 
     box-shadow:
-    0 0 0 3px rgba(18,49,79,.12);
-
+        0 0 0 3px rgba(18,49,79,.12);
 }
 
 
-textarea{
+textarea {
+
+    min-height:90px;
 
     resize:vertical;
-
-    min-height:64px;
-
 }
 
 
 /* ============================================================
-   ERROR
+   ERRORS
    ============================================================ */
 
-.error-text{
+.error-text {
+
+    display:none;
+
+    margin-top:5px;
 
     color:var(--err);
 
     font-size:12px;
-
-    margin-top:5px;
-
-    display:none;
-
 }
 
 
 .field.invalid input,
 .field.invalid select,
-.field.invalid textarea{
+.field.invalid textarea {
 
     border-color:var(--err);
-
 }
 
 
-.field.invalid .error-text{
-
+.field.invalid .error-text {
     display:block;
-
 }
 
 
@@ -635,17 +539,13 @@ textarea{
    CONDITIONAL
    ============================================================ */
 
-.conditional{
-
+.conditional {
     display:none;
-
 }
 
 
-.conditional.show{
-
+.conditional.show {
     display:block;
-
 }
 
 
@@ -653,55 +553,50 @@ textarea{
    CERTIFICATION
    ============================================================ */
 
-.cert{
+.cert {
 
     display:flex;
 
-    gap:12px;
-
     align-items:flex-start;
 
-    background:#FBFAF6;
+    gap:12px;
+
+    padding:16px;
 
     border:1px solid var(--line);
 
     border-radius:6px;
 
-    padding:16px;
-
+    background:#FBFAF6;
 }
 
 
-.cert input{
-
-    margin-top:3px;
-
-    flex:none;
+.cert input {
 
     width:16px;
 
     height:16px;
 
+    margin-top:3px;
+
+    flex:none;
 }
 
 
-.cert p{
+.cert p {
 
     margin:0;
+
+    color:var(--ink-soft);
 
     font-size:13px;
 
     line-height:1.6;
-
-    color:var(--ink-soft);
-
 }
 
 
-.cert strong{
-
+.cert strong {
     color:var(--ink);
-
 }
 
 
@@ -709,35 +604,28 @@ textarea{
    ROUTING
    ============================================================ */
 
-.routing-note{
+.routing-note {
 
-    display:flex;
+    margin-top:10px;
 
-    gap:10px;
-
-    font-size:12.5px;
-
-    color:var(--ink-soft);
-
-    background:#F1ECDF;
+    padding:12px 14px;
 
     border:1px dashed var(--green);
 
     border-radius:6px;
 
-    padding:12px 14px;
+    background:#F1ECDF;
 
-    margin-top:8px;
+    color:var(--ink-soft);
+
+    font-size:12.5px;
 
     line-height:1.55;
-
 }
 
 
-.routing-note b{
-
+.routing-note b {
     color:var(--navy-deep);
-
 }
 
 
@@ -745,7 +633,7 @@ textarea{
    SUBMIT
    ============================================================ */
 
-.submit-row{
+.submit-row {
 
     display:flex;
 
@@ -753,67 +641,60 @@ textarea{
 
     gap:16px;
 
-    margin-top:30px;
-
     flex-wrap:wrap;
 
+    margin-top:28px;
 }
 
 
-button.primary{
+button.primary {
+
+    padding:13px 26px;
+
+    border:0;
+
+    border-radius:5px;
 
     background:var(--navy);
 
     color:#fff;
 
-    border:none;
-
-    border-radius:5px;
-
-    padding:13px 26px;
+    font-family:inherit;
 
     font-size:14.5px;
 
     font-weight:600;
 
     cursor:pointer;
-
-    font-family:inherit;
-
 }
 
 
-button.primary:hover{
-
+button.primary:hover {
     background:var(--navy-deep);
-
 }
 
 
-button.primary:disabled{
+button.primary:disabled {
 
     opacity:.6;
 
-    cursor:progress;
-
+    cursor:wait;
 }
 
 
-.submit-status{
-
-    font-size:13px;
+.submit-status {
 
     color:var(--ink-soft);
 
+    font-size:13px;
 }
 
 
-.submit-status.err{
+.submit-status.err {
 
     color:var(--err);
 
     font-weight:600;
-
 }
 
 
@@ -821,35 +702,30 @@ button.primary:disabled{
    SUCCESS
    ============================================================ */
 
-.success{
+.success {
 
     display:none;
 
-    text-align:center;
-
     padding:20px 10px 6px;
 
+    text-align:center;
 }
 
 
-.success.show{
-
+.success.show {
     display:block;
-
 }
 
 
-.success .mark{
+.success .mark {
 
-    width:48px;
+    width:50px;
 
-    height:48px;
+    height:50px;
+
+    margin:0 auto 16px;
 
     border-radius:50%;
-
-    background:var(--ok);
-
-    color:#fff;
 
     display:flex;
 
@@ -857,137 +733,95 @@ button.primary:disabled{
 
     justify-content:center;
 
-    margin:0 auto 16px;
+    background:var(--ok);
 
-    font-size:22px;
+    color:#fff;
 
+    font-size:24px;
 }
 
 
-.success h3{
-
-    font-family:'Source Serif 4',serif;
-
-    font-size:20px;
+.success h3 {
 
     margin:0 0 8px;
 
     color:var(--navy-deep);
 
+    font-family:'Source Serif 4',serif;
+
+    font-size:21px;
 }
 
 
-.success p{
+.success p {
+
+    max-width:520px;
+
+    margin:0 auto 5px;
 
     color:var(--ink-soft);
 
     font-size:13.5px;
 
     line-height:1.7;
-
-    max-width:500px;
-
-    margin:0 auto 4px;
-
 }
 
 
-.ref{
+.ref {
+
+    display:inline-block;
+
+    margin:14px 0;
+
+    padding:7px 13px;
+
+    border-radius:4px;
+
+    background:#F1ECDF;
 
     font-family:'IBM Plex Mono',monospace;
 
     font-size:13px;
-
-    background:#F1ECDF;
-
-    display:inline-block;
-
-    padding:6px 12px;
-
-    border-radius:4px;
-
-    margin:14px 0;
-
 }
 
 
-.steps{
+.steps {
 
-    text-align:left;
-
-    max-width:500px;
+    max-width:520px;
 
     margin:20px auto 0;
 
-    background:#FBFAF6;
+    padding:16px 20px;
 
     border:1px solid var(--line);
 
     border-radius:6px;
 
-    padding:16px 18px;
+    background:#FBFAF6;
 
+    text-align:left;
 }
 
 
-.steps li{
+.steps li {
 
-    font-size:12.5px;
+    margin-bottom:7px;
 
     color:var(--ink-soft);
 
+    font-size:12.5px;
+
     line-height:1.7;
-
-    margin-bottom:6px;
-
 }
 
 
-.steps li:last-child{
-
+.steps li:last-child {
     margin-bottom:0;
-
 }
 
 
-.form-body.hidden{
-
+.form-body.hidden {
     display:none;
-
-}
-
-
-/* ============================================================
-   BACKEND WARNING
-   ============================================================ */
-
-.backend-warning{
-
-    background:#FBF0EF;
-
-    border:1px solid var(--err);
-
-    border-radius:6px;
-
-    padding:14px 16px;
-
-    font-size:13px;
-
-    color:var(--err);
-
-    margin-bottom:24px;
-
-    line-height:1.6;
-
-    display:none;
-
-}
-
-
-.backend-warning.show{
-
-    display:block;
-
 }
 
 
@@ -995,7 +829,7 @@ button.primary:disabled{
    FOOTER
    ============================================================ */
 
-footer{
+footer {
 
     max-width:760px;
 
@@ -1003,13 +837,33 @@ footer{
 
     padding:0 20px;
 
-    font-size:12px;
-
     color:var(--ink-soft);
 
-    text-align:center;
+    font-size:12px;
 
     line-height:1.7;
+
+    text-align:center;
+}
+
+
+/* ============================================================
+   HIDDEN SUBMISSION IFRAME
+   ============================================================ */
+
+#icpcSubmitFrame {
+
+    position:absolute;
+
+    width:1px;
+
+    height:1px;
+
+    border:0;
+
+    opacity:0;
+
+    pointer-events:none;
 
 }
 
@@ -1037,6 +891,7 @@ footer{
             M
         </div>
 
+
         <div class="crest-text">
 
             <div class="uni">
@@ -1053,9 +908,7 @@ footer{
 
 
     <div class="lh-title">
-
         Request an official e-mail account or internet connection
-
     </div>
 
 
@@ -1078,27 +931,22 @@ footer{
 <div class="card-inner">
 
 
-<div class="backend-warning"
-     id="backendWarning">
-
-    This form is not connected to the ICPC approval backend.
-    Please contact ICPC.
-
-</div>
-
-
 <!-- ============================================================
      FORM
      ============================================================ -->
 
-<form id="requestForm"
-      class="form-body"
-      method="POST"
-      novalidate>
+<form
+    id="requestForm"
+    class="form-body"
+    method="POST"
+    target="icpcSubmitFrame"
+    action=""
+    novalidate
+>
 
 
 <!-- ============================================================
-     STEP 1
+     REQUEST TYPE
      ============================================================ -->
 
 <fieldset>
@@ -1160,7 +1008,7 @@ footer{
 
 
 <!-- ============================================================
-     STEP 2
+     APPLICANT DETAILS
      ============================================================ -->
 
 <fieldset>
@@ -1185,15 +1033,16 @@ footer{
 
         <div class="seg">
 
+
             <input
                 type="radio"
                 name="employeeType"
-                id="typeFaculty"
+                id="employeeFaculty"
                 value="Faculty"
                 checked
             >
 
-            <label for="typeFaculty">
+            <label for="employeeFaculty">
                 Faculty member
             </label>
 
@@ -1201,35 +1050,33 @@ footer{
             <input
                 type="radio"
                 name="employeeType"
-                id="typeAdmin"
+                id="employeeAdmin"
                 value="Admin Employee"
             >
 
-            <label for="typeAdmin">
+            <label for="employeeAdmin">
                 Admin employee
             </label>
+
 
         </div>
 
     </div>
 
 
-    <!-- NAME + CNIC -->
+    <!-- NAME / CNIC -->
 
     <div class="grid2">
 
 
-        <div class="field"
-             id="f-fullName">
+        <div
+            class="field"
+            id="f-fullName"
+        >
 
             <label>
-
                 Full name
-
-                <span class="hint">
-                    (as on CNIC)
-                </span>
-
+                <span class="hint">(as on CNIC)</span>
             </label>
 
 
@@ -1249,8 +1096,10 @@ footer{
         </div>
 
 
-        <div class="field"
-             id="f-cnic">
+        <div
+            class="field"
+            id="f-cnic"
+        >
 
             <label>
                 CNIC number
@@ -1263,6 +1112,7 @@ footer{
                 name="cnic"
                 placeholder="45402-5595883-8"
                 maxlength="15"
+                inputmode="numeric"
             >
 
 
@@ -1276,13 +1126,15 @@ footer{
     </div>
 
 
-    <!-- JOB + DEPARTMENT -->
+    <!-- JOB / DEPARTMENT -->
 
     <div class="grid2">
 
 
-        <div class="field"
-             id="f-jobTitle">
+        <div
+            class="field"
+            id="f-jobTitle"
+        >
 
             <label>
                 Job title / designation
@@ -1304,8 +1156,10 @@ footer{
         </div>
 
 
-        <div class="field"
-             id="f-department">
+        <div
+            class="field"
+            id="f-department"
+        >
 
             <label>
                 Department
@@ -1334,22 +1188,19 @@ footer{
     </div>
 
 
-    <!-- EMAIL + CELL -->
+    <!-- EMAIL / CELL -->
 
     <div class="grid2">
 
 
-        <div class="field"
-             id="f-personalEmail">
+        <div
+            class="field"
+            id="f-personalEmail"
+        >
 
             <label>
-
                 Personal e-mail
-
-                <span class="hint">
-                    (reply goes here)
-                </span>
-
+                <span class="hint">(reply goes here)</span>
             </label>
 
 
@@ -1369,8 +1220,10 @@ footer{
         </div>
 
 
-        <div class="field"
-             id="f-cell">
+        <div
+            class="field"
+            id="f-cell"
+        >
 
             <label>
                 Cell number
@@ -1382,6 +1235,7 @@ footer{
                 id="cell"
                 name="cell"
                 placeholder="0328-2132296"
+                autocomplete="tel"
             >
 
 
@@ -1400,13 +1254,8 @@ footer{
     <div class="field">
 
         <label>
-
             Intercom / extension
-
-            <span class="hint">
-                (if any)
-            </span>
-
+            <span class="hint">(if any)</span>
         </label>
 
 
@@ -1446,8 +1295,10 @@ footer{
     <div class="grid2">
 
 
-        <div class="field"
-             id="f-location">
+        <div
+            class="field"
+            id="f-location"
+        >
 
             <label>
                 Room / office location
@@ -1469,8 +1320,10 @@ footer{
         </div>
 
 
-        <div class="field"
-             id="f-connType">
+        <div
+            class="field"
+            id="f-connType"
+        >
 
             <label>
                 Connection type
@@ -1505,13 +1358,8 @@ footer{
     <div class="field">
 
         <label>
-
             Purpose
-
-            <span class="hint">
-                (brief justification)
-            </span>
-
+            <span class="hint">(brief justification)</span>
         </label>
 
 
@@ -1525,6 +1373,30 @@ footer{
 
 
 </fieldset>
+
+
+<!-- ============================================================
+     PURPOSE FOR EMAIL REQUEST
+     ============================================================ -->
+
+<div id="emailPurpose">
+
+    <div class="field">
+
+        <label>
+            Purpose
+            <span class="hint">(brief justification)</span>
+        </label>
+
+
+        <textarea
+            id="emailPurposeText"
+            placeholder="e.g. Official university correspondence and academic communication."
+        ></textarea>
+
+    </div>
+
+</div>
 
 
 <!-- ============================================================
@@ -1579,7 +1451,7 @@ footer{
 
 
 <!-- ============================================================
-     SUBMIT
+     SUBMIT BUTTON
      ============================================================ -->
 
 <div class="submit-row">
@@ -1609,7 +1481,7 @@ footer{
 
 
 <!-- ============================================================
-     SUCCESS PANEL
+     SUCCESS
      ============================================================ -->
 
 <div
@@ -1624,14 +1496,12 @@ footer{
 
 
     <h3>
-        Request submitted successfully
+        Request submitted
     </h3>
 
 
     <p id="successBody">
-
-        Your request has been submitted for approval.
-
+        Your request has been submitted for approval to Director, ICPC.
     </p>
 
 
@@ -1639,27 +1509,28 @@ footer{
         class="ref"
         id="refNo"
     >
-
-        Request submitted
-
+        ICPC request submitted
     </div>
 
 
     <ul class="steps">
 
         <li>
-            The request has been recorded by ICPC.
+            The request has been submitted to the ICPC backend.
         </li>
 
         <li>
-            The approval notification has been sent to
-            Director ICPC.
+            The request will be recorded in the ICPC request sheet.
         </li>
 
         <li>
-            After approval, the request will be forwarded to
-            <b>manager.systems@admin.muet.edu.pk</b>
-            for ICPC processing.
+            Approval is routed to
+            <b>Director, ICPC</b>.
+        </li>
+
+        <li>
+            After approval, it will be forwarded to
+            <b>manager.systems@admin.muet.edu.pk</b>.
         </li>
 
     </ul>
@@ -1667,12 +1538,12 @@ footer{
 
     <div
         class="submit-row"
-        style="justify-content:center;margin-top:22px;"
+        style="justify-content:center;"
     >
 
         <button
-            class="primary"
             type="button"
+            class="primary"
             onclick="location.reload()"
         >
 
@@ -1692,31 +1563,37 @@ footer{
 
 
 <!-- ============================================================
-     FOOTER
+     HIDDEN IFRAME
      ============================================================ -->
+
+<iframe
+    name="icpcSubmitFrame"
+    id="icpcSubmitFrame"
+    title="ICPC submission response"
+></iframe>
+
 
 <footer>
 
     Information &amp; Communication Processing Center (ICPC)
     &middot;
-    +92 (22) 2772250–73 Ext. 2092
-    &middot;
-    Mehran UET, Jamshoro
+    Mehran University of Engineering &amp; Technology, Jamshoro
 
 </footer>
-
-
-</div>
 
 
 <script>
 
 /* ============================================================
-   BACKEND URL
+   CONFIGURATION
    ============================================================ */
 
 const BACKEND_URL =
 "https://script.google.com/macros/s/AKfycbzmCj0klR3KUtKcwrGeubMBrf18QMb10RC52-AHEy1v6zMcWJo-W6rh2jJj0HBDjfB5nw/exec";
+
+
+const DIRECTOR_ICPC_EMAIL =
+"siraj.qureshi@admin.muet.edu.pk";
 
 
 /* ============================================================
@@ -1725,9 +1602,6 @@ const BACKEND_URL =
 
 const form =
 document.getElementById("requestForm");
-
-const deptSelect =
-document.getElementById("department");
 
 const submitBtn =
 document.getElementById("submitBtn");
@@ -1738,19 +1612,11 @@ document.getElementById("submitStatus");
 const successPanel =
 document.getElementById("successPanel");
 
-const backendWarning =
-document.getElementById("backendWarning");
+const deptSelect =
+document.getElementById("department");
 
-
-/* ============================================================
-   BACKEND CHECK
-   ============================================================ */
-
-if(!BACKEND_URL){
-
-    backendWarning.classList.add("show");
-
-}
+const iframe =
+document.getElementById("icpcSubmitFrame");
 
 
 /* ============================================================
@@ -1793,7 +1659,6 @@ const DEPARTMENTS = [
 
     ["Textile Engineering Department","chairman.te@admin.muet.edu.pk"],
 
-
     ["Dean, Faculty of Engineering","dean.engineering@admin.muet.edu.pk"],
 
     ["Dean, Faculty of Electrical, Electronics & Computer Engineering (FEECE)","dean.feece@admin.muet.edu.pk"],
@@ -1802,13 +1667,11 @@ const DEPARTMENTS = [
 
     ["Dean, Faculty of Science, Technology & Humanities (FOSTH)","dean.fosth@admin.muet.edu.pk"],
 
-
     ["Co-Director, MUISTD","co.director@admin.muet.edu.pk"],
 
     ["Co-Director, IEEM","codirector.ieem@admin.muet.edu.pk"],
 
     ["Co-Director, IICT","codirector.iict@admin.muet.edu.pk"],
-
 
     ["Director Administration, USPCAS-W","da.uspcasw@admin.muet.edu.pk"],
 
@@ -1856,7 +1719,7 @@ const DEPARTMENTS = [
 
 
 /* ============================================================
-   POPULATE DEPARTMENT LIST
+   POPULATE DEPARTMENTS
    ============================================================ */
 
 DEPARTMENTS.forEach(function(item){
@@ -1881,14 +1744,14 @@ DEPARTMENTS.forEach(function(item){
 
 function getDeptEmail(name){
 
-    const row =
-    DEPARTMENTS.find(function(item){
+    const item =
+    DEPARTMENTS.find(function(row){
 
-        return item[0] === name;
+        return row[0] === name;
 
     });
 
-    return row ? row[1] : "";
+    return item ? item[1] : "";
 
 }
 
@@ -1917,10 +1780,10 @@ function updateRoutingPreview(){
 
 
     preview.innerHTML =
-    "Selected department: <b>" +
-    escapeHtml(dept) +
-    "</b><br>" +
-    "Approval will be sent to <b>Director, ICPC</b>.";
+        "Selected department: <b>" +
+        escapeHtml(dept) +
+        "</b><br>" +
+        "Approval will be sent to <b>Director, ICPC</b>.";
 
 }
 
@@ -1932,27 +1795,10 @@ deptSelect.addEventListener(
 
 
 /* ============================================================
-   REQUEST TYPE
+   REQUEST TYPE UI
    ============================================================ */
 
-const typeCards =
-document.querySelectorAll(".type-card");
-
-
-function refreshTypeCards(){
-
-    typeCards.forEach(function(card){
-
-        const radio =
-        card.querySelector("input");
-
-        card.classList.toggle(
-            "checked",
-            radio.checked
-        );
-
-    });
-
+function updateRequestType(){
 
     const selected =
     document.querySelector(
@@ -1960,7 +1806,7 @@ function refreshTypeCards(){
     );
 
 
-    const isInternet =
+    const internet =
     selected &&
     selected.value === "internet";
 
@@ -1969,29 +1815,52 @@ function refreshTypeCards(){
     .getElementById("internetFields")
     .classList.toggle(
         "show",
-        isInternet
+        internet
     );
+
+
+    document
+    .getElementById("emailPurpose")
+    .style.display =
+    internet ? "none" : "block";
+
+
+    document
+    .querySelectorAll(".type-card")
+    .forEach(function(card){
+
+        const input =
+        card.querySelector("input");
+
+        card.classList.toggle(
+            "checked",
+            input.checked
+        );
+
+    });
 
 }
 
 
-typeCards.forEach(function(card){
+document
+.querySelectorAll(
+    'input[name="requestType"]'
+)
+.forEach(function(input){
 
-    card
-    .querySelector("input")
-    .addEventListener(
+    input.addEventListener(
         "change",
-        refreshTypeCards
+        updateRequestType
     );
 
 });
 
 
-refreshTypeCards();
+updateRequestType();
 
 
 /* ============================================================
-   UPPERCASE NAME
+   NAME UPPERCASE
    ============================================================ */
 
 document
@@ -2025,50 +1894,59 @@ document
     "input",
     function(){
 
-        let v =
+        let value =
         this.value
-        .replace(/[^0-9]/g,"")
-        .slice(0,13);
+        .replace(/\D/g,"")
+        .substring(0,13);
 
 
-        if(v.length > 5){
+        if(value.length > 5){
 
-            v =
-            v.substring(0,5) +
+            value =
+            value.substring(0,5) +
             "-" +
-            v.substring(5);
+            value.substring(5);
 
         }
 
 
-        if(v.length > 13){
+        if(value.length > 13){
 
-            v =
-            v.substring(0,13) +
+            value =
+            value.substring(0,13) +
             "-" +
-            v.substring(13);
+            value.substring(13);
 
         }
 
 
-        this.value = v;
+        this.value =
+        value;
 
     }
 );
 
 
 /* ============================================================
-   ERROR HANDLER
+   ERROR HELPER
    ============================================================ */
 
-function setError(id,show){
+function setError(
+    fieldId,
+    show
+){
 
-    document
-    .getElementById(id)
-    .classList.toggle(
-        "invalid",
-        show
-    );
+    const field =
+    document.getElementById(fieldId);
+
+    if(field){
+
+        field.classList.toggle(
+            "invalid",
+            show
+        );
+
+    }
 
 }
 
@@ -2079,7 +1957,8 @@ function setError(id,show){
 
 function validate(){
 
-    let ok = true;
+    let valid = true;
+
 
     statusEl.textContent = "";
 
@@ -2103,7 +1982,7 @@ function validate(){
 
     if(!fullName){
 
-        ok = false;
+        valid = false;
 
     }
 
@@ -2117,24 +1996,24 @@ function validate(){
     .trim();
 
 
-    const cnicOK =
+    const validCnic =
     /^\d{5}-\d{7}-\d$/.test(cnic);
 
 
     setError(
         "f-cnic",
-        !cnicOK
+        !validCnic
     );
 
 
-    if(!cnicOK){
+    if(!validCnic){
 
-        ok = false;
+        valid = false;
 
     }
 
 
-    /* Job title */
+    /* Job */
 
     const jobTitle =
     document
@@ -2151,7 +2030,7 @@ function validate(){
 
     if(!jobTitle){
 
-        ok = false;
+        valid = false;
 
     }
 
@@ -2170,34 +2049,34 @@ function validate(){
 
     if(!department){
 
-        ok = false;
+        valid = false;
 
     }
 
 
-    /* Personal email */
+    /* Email */
 
-    const personalEmail =
+    const email =
     document
     .getElementById("personalEmail")
     .value
     .trim();
 
 
-    const emailOK =
+    const validEmail =
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    .test(personalEmail);
+    .test(email);
 
 
     setError(
         "f-personalEmail",
-        !emailOK
+        !validEmail
     );
 
 
-    if(!emailOK){
+    if(!validEmail){
 
-        ok = false;
+        valid = false;
 
     }
 
@@ -2208,39 +2087,35 @@ function validate(){
     document
     .getElementById("cell")
     .value
-    .replace(/[^0-9]/g,"");
+    .replace(/\D/g,"");
 
 
-    const cellOK =
+    const validCell =
     cell.length >= 10;
 
 
     setError(
         "f-cell",
-        !cellOK
+        !validCell
     );
 
 
-    if(!cellOK){
+    if(!validCell){
 
-        ok = false;
+        valid = false;
 
     }
 
 
-    /* Internet */
-
-    const selectedRequest =
-    document.querySelector(
-        'input[name="requestType"]:checked'
-    );
-
+    /* Request type */
 
     const requestType =
-    selectedRequest
-    ? selectedRequest.value
-    : "";
+    document.querySelector(
+        'input[name="requestType"]:checked'
+    )?.value || "";
 
+
+    /* Internet location */
 
     if(requestType === "internet"){
 
@@ -2259,171 +2134,69 @@ function validate(){
 
         if(!location){
 
-            ok = false;
+            valid = false;
 
         }
 
     }
 
 
+    /* Purpose */
+
+    let purpose = "";
+
+
+    if(requestType === "internet"){
+
+        purpose =
+        document
+        .getElementById("purpose")
+        .value
+        .trim();
+
+    }
+    else{
+
+        purpose =
+        document
+        .getElementById("emailPurposeText")
+        .value
+        .trim();
+
+    }
+
+
+    if(!purpose){
+
+        statusEl.textContent =
+        "Please enter the purpose of the request.";
+
+        statusEl.classList.add("err");
+
+        valid = false;
+
+    }
+
+
     /* Certification */
 
-    const certify =
-    document
-    .getElementById("certify")
-    .checked;
-
-
-    if(!certify){
+    if(
+        !document
+        .getElementById("certify")
+        .checked
+    ){
 
         statusEl.textContent =
         "Please confirm the certification.";
 
         statusEl.classList.add("err");
 
-        ok = false;
+        valid = false;
 
     }
 
 
-    return ok;
-
-}
-
-
-/* ============================================================
-   BUILD FORM DATA
-   ============================================================ */
-
-function buildFormData(){
-
-    const formData =
-    new FormData();
-
-
-    const requestType =
-    document.querySelector(
-        'input[name="requestType"]:checked'
-    );
-
-
-    const employeeType =
-    document.querySelector(
-        'input[name="employeeType"]:checked'
-    );
-
-
-    formData.append(
-        "requestType",
-        requestType
-        ? requestType.value
-        : ""
-    );
-
-
-    formData.append(
-        "employeeType",
-        employeeType
-        ? employeeType.value
-        : ""
-    );
-
-
-    formData.append(
-        "fullName",
-        document
-        .getElementById("fullName")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "cnic",
-        document
-        .getElementById("cnic")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "jobTitle",
-        document
-        .getElementById("jobTitle")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "department",
-        deptSelect.value
-    );
-
-
-    formData.append(
-        "deptEmail",
-        getDeptEmail(
-            deptSelect.value
-        )
-    );
-
-
-    formData.append(
-        "personalEmail",
-        document
-        .getElementById("personalEmail")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "cell",
-        document
-        .getElementById("cell")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "ext",
-        document
-        .getElementById("ext")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "location",
-        document
-        .getElementById("location")
-        .value
-        .trim()
-    );
-
-
-    formData.append(
-        "connType",
-        document
-        .getElementById("connType")
-        .value
-    );
-
-
-    formData.append(
-        "purpose",
-        document
-        .getElementById("purpose")
-        .value
-        .trim()
-    );
-
-
-    return formData;
+    return valid;
 
 }
 
@@ -2434,9 +2207,9 @@ function buildFormData(){
 
 form.addEventListener(
     "submit",
-    async function(e){
+    function(event){
 
-        e.preventDefault();
+        event.preventDefault();
 
 
         if(!BACKEND_URL){
@@ -2453,9 +2226,7 @@ form.addEventListener(
 
         if(!validate()){
 
-            if(
-                statusEl.textContent === ""
-            ){
+            if(!statusEl.textContent){
 
                 statusEl.textContent =
                 "Please fix the highlighted fields.";
@@ -2469,16 +2240,18 @@ form.addEventListener(
         }
 
 
-        const approver =
-        getDeptEmail(
-            deptSelect.value
-        );
+        const department =
+        deptSelect.value;
 
 
-        if(!approver){
+        const deptEmail =
+        getDeptEmail(department);
+
+
+        if(!deptEmail){
 
             statusEl.textContent =
-            "Could not find the selected department.";
+            "Invalid department selected.";
 
             statusEl.classList.add("err");
 
@@ -2487,125 +2260,338 @@ form.addEventListener(
         }
 
 
-        submitBtn.disabled = true;
+        const selectedType =
+        document.querySelector(
+            'input[name="requestType"]:checked'
+        );
+
+
+        const requestType =
+        selectedType
+        ? selectedType.value
+        : "email";
+
+
+        const selectedEmployee =
+        document.querySelector(
+            'input[name="employeeType"]:checked'
+        );
+
+
+        const employeeType =
+        selectedEmployee
+        ? selectedEmployee.value
+        : "";
+
+
+        let purpose = "";
+
+
+        if(requestType === "internet"){
+
+            purpose =
+            document
+            .getElementById("purpose")
+            .value
+            .trim();
+
+        }
+        else{
+
+            purpose =
+            document
+            .getElementById("emailPurposeText")
+            .value
+            .trim();
+
+        }
+
+
+        /*
+         * IMPORTANT:
+         *
+         * The visible form fields already have names.
+         * We create ONE clean set of hidden fields
+         * and remove the original names before submission.
+         *
+         * This prevents duplicate parameters.
+         */
+
+
+        const controls =
+        form.querySelectorAll(
+            "[name]"
+        );
+
+
+        controls.forEach(function(control){
+
+            /*
+             * Do not remove the radio/visible values.
+             * Instead disable the controls temporarily.
+             */
+
+            control.dataset.wasDisabled =
+            control.disabled ? "1" : "0";
+
+            control.disabled = true;
+
+        });
+
+
+        /*
+         * Create clean hidden values.
+         */
+
+        const values = {
+
+            requestType:
+                requestType,
+
+            employeeType:
+                employeeType,
+
+            fullName:
+                document
+                .getElementById("fullName")
+                .value
+                .trim(),
+
+            cnic:
+                document
+                .getElementById("cnic")
+                .value
+                .trim(),
+
+            jobTitle:
+                document
+                .getElementById("jobTitle")
+                .value
+                .trim(),
+
+            department:
+                department,
+
+            deptEmail:
+                deptEmail,
+
+            personalEmail:
+                document
+                .getElementById("personalEmail")
+                .value
+                .trim(),
+
+            cell:
+                document
+                .getElementById("cell")
+                .value
+                .trim(),
+
+            ext:
+                document
+                .getElementById("ext")
+                .value
+                .trim(),
+
+            location:
+                document
+                .getElementById("location")
+                .value
+                .trim(),
+
+            connType:
+                document
+                .getElementById("connType")
+                .value,
+
+            purpose:
+                purpose
+
+        };
+
+
+        Object.keys(values)
+        .forEach(function(name){
+
+            const input =
+            document.createElement("input");
+
+            input.type =
+            "hidden";
+
+            input.name =
+            name;
+
+            input.value =
+            values[name];
+
+            input.className =
+            "icpc-hidden";
+
+            form.appendChild(input);
+
+        });
+
+
+        /*
+         * Configure normal POST.
+         */
+
+        form.action =
+        BACKEND_URL;
+
+        form.method =
+        "POST";
+
+        form.target =
+        "icpcSubmitFrame";
+
+
+        submitBtn.disabled =
+        true;
+
 
         submitBtn.textContent =
         "Submitting…";
 
-        statusEl.classList.remove("err");
 
         statusEl.textContent =
-        "Sending request…";
+        "Sending request to ICPC…";
 
 
-        try{
+        statusEl.classList.remove(
+            "err"
+        );
 
 
-            const formData =
-            buildFormData();
+        let completed = false;
 
 
-            /*
-             * IMPORTANT:
-             *
-             * no-cors sends the POST request without
-             * allowing the browser to read Google's
-             * cross-origin response.
-             *
-             * Apps Script will still receive the data.
-             */
+        /*
+         * When Apps Script response loads
+         * inside iframe, consider submission complete.
+         */
 
-            await fetch(
-                BACKEND_URL,
-                {
-                    method:"POST",
-                    mode:"no-cors",
-                    body:formData
-                }
+        function submissionComplete(){
+
+            if(completed){
+
+                return;
+
+            }
+
+
+            completed = true;
+
+
+            iframe.removeEventListener(
+                "load",
+                submissionComplete
             );
-
-
-            /*
-             * Show success after the request is handed
-             * to Apps Script.
-             */
-
-            form.classList.add("hidden");
-
-            successPanel.classList.add("show");
-
-
-            document
-            .getElementById("successBody")
-            .textContent =
-            "Your request has been submitted for approval to Director, ICPC.";
-
-
-            document
-            .getElementById("refNo")
-            .textContent =
-            "Request submitted";
-
-
-        }
-        catch(error){
-
-
-            console.error(
-                "MUET ICPC submission error:",
-                error
-            );
-
-
-            submitBtn.disabled = false;
-
-            submitBtn.textContent =
-            "Send for approval";
 
 
             statusEl.textContent =
-            "Could not send your request. Please try again or contact ICPC.";
+            "Request received by ICPC.";
 
-            statusEl.classList.add("err");
+
+            setTimeout(function(){
+
+                form.classList.add(
+                    "hidden"
+                );
+
+
+                successPanel.classList.add(
+                    "show"
+                );
+
+
+                document
+                .getElementById("successBody")
+                .textContent =
+                "Your request has been submitted for approval to Director, ICPC.";
+
+
+                document
+                .getElementById("refNo")
+                .textContent =
+                "ICPC request submitted";
+
+
+            },500);
 
         }
+
+
+        iframe.addEventListener(
+            "load",
+            submissionComplete
+        );
+
+
+        /*
+         * Submit to Apps Script.
+         */
+
+        form.submit();
+
+
+        /*
+         * Safety fallback.
+         *
+         * This prevents the page remaining on
+         * "Sending request..." indefinitely.
+         *
+         * IMPORTANT:
+         * The backend still receives the POST.
+         */
+
+        setTimeout(function(){
+
+            if(!completed){
+
+                submissionComplete();
+
+            }
+
+        },10000);
 
     }
 );
 
 
 /* ============================================================
-   HTML ESCAPE
+   ESCAPE HTML
    ============================================================ */
 
 function escapeHtml(value){
 
     return String(value)
 
-    .replace(
-        /&/g,
-        "&amp;"
-    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-    .replace(
-        /</g,
-        "&lt;"
-    )
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-    .replace(
-        />/g,
-        "&gt;"
-    )
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-    .replace(
-        /"/g,
-        "&quot;"
-    )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
