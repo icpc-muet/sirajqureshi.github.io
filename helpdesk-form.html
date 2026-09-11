@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,921 +11,482 @@
 
   <title>Campus IT Helpdesk — Report an Issue</title>
 
-
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   >
 
-
   <style>
-
     :root {
-
       --paper: #F7F5EF;
       --paper-2: #EFECE2;
-
       --ink: #1C1F26;
       --muted: #6B7280;
-
       --line: #D9D4C6;
-
       --blue: #241463;
       --blue-deep: #170D42;
-
       --leaf: #5FA22C;
       --sky: #3E93B5;
-
       --amber: #E2A233;
       --green: #3D8361;
       --red: #B8433A;
-
       --white: #FFFFFF;
-
     }
-
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
-
       background: var(--paper);
-
       color: var(--ink);
-
       font-family: Inter, Arial, sans-serif;
-
       line-height: 1.6;
-
     }
-
-
-    /* ========================================================
-       HEADER
-       ======================================================== */
 
     header {
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue-deep),
-          var(--blue)
-        );
-
+      background: linear-gradient(
+        135deg,
+        var(--blue-deep),
+        var(--blue)
+      );
       color: white;
-
       padding: 32px 20px 44px;
-
       position: relative;
-
       overflow: hidden;
-
     }
-
 
     header::after {
-
       content: "";
-
       position: absolute;
-
       width: 320px;
       height: 320px;
-
       border-radius: 50%;
-
-      background: rgba(255,255,255,.06);
-
+      background: rgba(255, 255, 255, .06);
       right: -100px;
       top: -130px;
-
     }
-
 
     .header-inner {
-
       max-width: 1100px;
-
       margin: auto;
-
       position: relative;
-
       z-index: 2;
-
     }
-
 
     .brand {
-
       display: flex;
-
       align-items: center;
-
       gap: 16px;
-
       margin-bottom: 42px;
-
     }
-
 
     .brand-logo {
-
       width: 64px;
       height: 64px;
-
       border-radius: 14px;
-
       background: white;
-
       color: var(--blue);
-
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       font-family: "Space Grotesk", sans-serif;
-
-      font-size: 22px;
-
+      font-size: 20px;
       font-weight: 700;
-
-      box-shadow: 0 10px 30px rgba(0,0,0,.15);
-
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
     }
-
 
     .brand-title {
-
       font-family: "Space Grotesk", sans-serif;
-
       font-weight: 700;
-
       font-size: 18px;
-
       line-height: 1.25;
-
     }
-
 
     .brand-subtitle {
-
       opacity: .72;
-
       font-size: 13px;
-
       margin-top: 3px;
-
     }
-
 
     .kicker {
-
       display: inline-block;
-
       font-family: "IBM Plex Mono", monospace;
-
       font-size: 12px;
-
       font-weight: 600;
-
       letter-spacing: .13em;
-
       text-transform: uppercase;
-
       color: #D8F1FF;
-
-      border: 1px solid rgba(255,255,255,.28);
-
+      border: 1px solid rgba(255, 255, 255, .28);
       padding: 8px 12px;
-
       border-radius: 999px;
-
       margin-bottom: 15px;
-
     }
-
 
     header h1 {
-
       font-family: "Space Grotesk", sans-serif;
-
       font-size: clamp(38px, 7vw, 70px);
-
       line-height: .98;
-
       letter-spacing: -.045em;
-
       margin: 0 0 20px;
-
       max-width: 800px;
-
     }
-
 
     header p {
-
       margin: 0;
-
       max-width: 760px;
-
-      color: rgba(255,255,255,.82);
-
+      color: rgba(255, 255, 255, .82);
       font-size: 16px;
-
     }
-
-
-    /* ========================================================
-       MAIN
-       ======================================================== */
 
     main {
-
       max-width: 1100px;
-
       margin: 0 auto;
-
       padding: 55px 20px 80px;
-
     }
-
 
     section {
-
       margin-bottom: 70px;
-
     }
-
 
     .section-label {
-
       font-family: "IBM Plex Mono", monospace;
-
       font-size: 11px;
-
       font-weight: 600;
-
       letter-spacing: .12em;
-
       color: var(--muted);
-
       text-transform: uppercase;
-
       margin-bottom: 8px;
-
     }
-
 
     h2 {
-
       font-family: "Space Grotesk", sans-serif;
-
       font-size: clamp(30px, 5vw, 46px);
-
       letter-spacing: -.035em;
-
       margin: 0 0 12px;
-
       line-height: 1.05;
-
     }
-
 
     .section-intro {
-
       max-width: 720px;
-
       color: var(--muted);
-
       margin-bottom: 30px;
-
     }
-
-
-    /* ========================================================
-       FAQ FILTER
-       ======================================================== */
 
     .filters {
-
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 8px;
-
       margin: 25px 0;
-
     }
-
 
     .filter {
-
       border: 1px solid var(--line);
-
       background: var(--white);
-
       color: var(--ink);
-
       border-radius: 999px;
-
       padding: 8px 13px;
-
       font-size: 13px;
-
       cursor: pointer;
-
       transition: .2s ease;
-
     }
-
 
     .filter:hover {
-
       border-color: var(--blue);
-
     }
-
 
     .filter.active {
-
       background: var(--blue);
-
       color: white;
-
       border-color: var(--blue);
-
     }
-
-
-    /* ========================================================
-       FAQ
-       ======================================================== */
 
     .faq-list {
-
       border-top: 1px solid var(--line);
-
     }
-
 
     .faq {
-
       border-bottom: 1px solid var(--line);
-
-      background: rgba(255,255,255,.25);
-
+      background: rgba(255, 255, 255, .25);
     }
-
 
     .faq button {
-
       width: 100%;
-
       border: 0;
-
       background: transparent;
-
       padding: 20px 4px;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 20px;
-
       text-align: left;
-
       font: inherit;
-
       cursor: pointer;
-
       color: var(--ink);
-
     }
-
 
     .faq-title {
-
       font-weight: 700;
-
     }
-
 
     .faq-category {
-
       display: block;
-
       font-family: "IBM Plex Mono", monospace;
-
       font-size: 10px;
-
       text-transform: uppercase;
-
       letter-spacing: .08em;
-
       color: var(--muted);
-
       margin-bottom: 4px;
-
     }
-
 
     .faq-icon {
-
       font-size: 24px;
-
       color: var(--blue);
-
       flex-shrink: 0;
-
     }
-
 
     .faq-answer {
-
       display: none;
-
       padding: 0 45px 22px 4px;
-
       color: var(--muted);
-
       max-width: 800px;
-
     }
-
 
     .faq.open .faq-answer {
-
       display: block;
-
     }
-
-
-    /* ========================================================
-       FORM CARD
-       ======================================================== */
 
     .form-card {
-
       background: white;
-
       border: 1px solid var(--line);
-
       border-radius: 24px;
-
       padding: clamp(22px, 5vw, 42px);
-
-      box-shadow:
-        0 18px 50px rgba(28,31,38,.07);
-
+      box-shadow: 0 18px 50px rgba(28, 31, 38, .07);
     }
-
 
     .form-grid {
-
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 20px;
-
     }
-
 
     .field {
-
       display: flex;
-
       flex-direction: column;
-
       gap: 7px;
-
     }
-
 
     .field.full {
-
       grid-column: 1 / -1;
-
     }
-
 
     label {
-
       font-size: 13px;
-
       font-weight: 700;
-
     }
-
 
     .required {
-
       color: var(--red);
-
     }
-
 
     input,
     select,
     textarea {
-
       width: 100%;
-
       border: 1px solid var(--line);
-
       border-radius: 12px;
-
       background: var(--paper);
-
       color: var(--ink);
-
       padding: 13px 14px;
-
       font: inherit;
-
       outline: none;
-
       transition: .2s ease;
-
     }
-
 
     input:focus,
     select:focus,
     textarea:focus {
-
       border-color: var(--blue);
-
-      box-shadow:
-        0 0 0 3px rgba(36,20,99,.09);
-
+      box-shadow: 0 0 0 3px rgba(36, 20, 99, .09);
       background: white;
-
     }
-
 
     textarea {
-
       min-height: 145px;
-
       resize: vertical;
-
     }
-
 
     .field-help {
-
       color: var(--muted);
-
       font-size: 11px;
-
     }
-
-
-    /* ========================================================
-       TICKET PREVIEW
-       ======================================================== */
 
     .ticket-preview {
-
       margin-top: 25px;
-
       padding: 17px 18px;
-
       background: var(--paper-2);
-
       border: 1px dashed var(--line);
-
       border-radius: 14px;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 20px;
-
     }
-
 
     .ticket-preview-label {
-
       font-size: 12px;
-
       color: var(--muted);
-
     }
-
 
     #ticketPreview {
-
       font-family: "IBM Plex Mono", monospace;
-
       font-weight: 600;
-
       color: var(--blue);
-
     }
-
-
-    /* ========================================================
-       SUBMIT
-       ======================================================== */
 
     .submit-row {
-
       margin-top: 25px;
-
       display: flex;
-
       align-items: center;
-
       gap: 15px;
-
       flex-wrap: wrap;
-
     }
-
 
     .submit-btn {
-
       border: 0;
-
       border-radius: 13px;
-
       background: var(--blue);
-
       color: white;
-
       padding: 14px 22px;
-
       font: inherit;
-
       font-weight: 700;
-
       cursor: pointer;
-
       transition: .2s ease;
-
-      box-shadow:
-        0 10px 22px rgba(36,20,99,.18);
-
+      box-shadow: 0 10px 22px rgba(36, 20, 99, .18);
     }
-
 
     .submit-btn:hover {
-
       background: var(--blue-deep);
-
       transform: translateY(-1px);
-
     }
-
 
     .submit-btn:disabled {
-
       opacity: .6;
-
       cursor: not-allowed;
-
       transform: none;
-
     }
-
 
     .status-msg {
-
       display: none;
-
       border-radius: 13px;
-
       padding: 15px 17px;
-
       margin-top: 18px;
-
       font-size: 14px;
-
     }
-
 
     .status-msg.show {
-
       display: block;
-
     }
-
 
     .status-msg.ok {
-
       background: #EAF5EE;
-
       border: 1px solid #BBDCC7;
-
       color: #24583D;
-
     }
-
 
     .status-msg.err {
-
       background: #FCEDEC;
-
       border: 1px solid #E5B9B5;
-
       color: #7A2923;
-
     }
-
-
-    .status-msg .tid {
-
-      font-family: "IBM Plex Mono", monospace;
-
-      font-weight: 700;
-
-    }
-
-
-    /* ========================================================
-       SUCCESS TICKET
-       ======================================================== */
 
     .success-ticket {
-
       display: none;
-
       margin-top: 22px;
-
       border-radius: 18px;
-
       background: var(--blue-deep);
-
       color: white;
-
       padding: 25px;
-
     }
-
 
     .success-ticket.show {
-
       display: block;
-
       animation: successIn .35s ease;
-
     }
 
-
     @keyframes successIn {
-
       from {
-
         opacity: 0;
-
         transform: translateY(8px);
-
       }
 
       to {
-
         opacity: 1;
-
         transform: translateY(0);
-
       }
-
     }
-
 
     .success-small {
-
       font-family: "IBM Plex Mono", monospace;
-
       font-size: 11px;
-
       text-transform: uppercase;
-
       letter-spacing: .12em;
-
       opacity: .65;
-
     }
-
 
     .success-number {
-
       font-family: "Space Grotesk", sans-serif;
-
       font-size: clamp(28px, 6vw, 48px);
-
       font-weight: 700;
-
       letter-spacing: -.03em;
-
       margin: 4px 0 5px;
-
     }
-
 
     .success-message {
-
-      color: rgba(255,255,255,.75);
-
+      color: rgba(255, 255, 255, .75);
       font-size: 13px;
-
     }
-
-
-    /* ========================================================
-       FOOTER
-       ======================================================== */
 
     footer {
-
       max-width: 1100px;
-
       margin: 0 auto;
-
       padding: 0 20px 35px;
-
       color: var(--muted);
-
       font-size: 12px;
-
       text-align: center;
-
     }
-
-
-    /* ========================================================
-       MOBILE
-       ======================================================== */
 
     @media (max-width: 700px) {
-
       .form-grid {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .field.full {
-
         grid-column: auto;
-
       }
-
 
       header {
-
         padding-top: 25px;
-
       }
-
 
       .brand {
-
         margin-bottom: 35px;
-
       }
-
 
       main {
-
         padding-top: 40px;
-
       }
-
 
       .ticket-preview {
-
         flex-direction: column;
-
         align-items: flex-start;
-
       }
-
     }
-
   </style>
 
 </head>
@@ -934,823 +494,719 @@
 
 <body>
 
+  <header>
 
-<!-- ==========================================================
-     HEADER
-     ========================================================== -->
+    <div class="header-inner">
 
-<header>
+      <div class="brand">
 
-  <div class="header-inner">
-
-    <div class="brand">
-
-      <div class="brand-logo">
-        MUET
-      </div>
-
-      <div>
-
-        <div class="brand-title">
-          Mehran University of Engineering &amp; Technology
+        <div class="brand-logo">
+          MUET
         </div>
 
-        <div class="brand-subtitle">
-          Jamshoro
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="kicker">
-      Campus IT Helpdesk
-    </div>
-
-
-    <h1>
-      Something not working?
-    </h1>
-
-
-    <p>
-      Check the quick fixes below first — most connectivity and
-      system issues clear up without a ticket. If it doesn't,
-      file a complaint at the bottom and our team picks it up
-      directly from this form.
-    </p>
-
-  </div>
-
-</header>
-
-
-
-<!-- ==========================================================
-     MAIN
-     ========================================================== -->
-
-<main>
-
-
-  <!-- ========================================================
-       FAQ
-       ======================================================== -->
-
-  <section>
-
-    <div class="section-label">
-      01 — Before you file a ticket
-    </div>
-
-    <h2>
-      Try these fixes first
-    </h2>
-
-    <p class="section-intro">
-      A few quick checks can resolve common campus IT problems
-      without waiting for a technician.
-    </p>
-
-
-    <div class="filters">
-
-      <button
-        class="filter active"
-        data-filter="all"
-        type="button"
-      >
-        All
-      </button>
-
-      <button
-        class="filter"
-        data-filter="Internet / Data"
-        type="button"
-      >
-        Internet / Data
-      </button>
-
-      <button
-        class="filter"
-        data-filter="WiFi"
-        type="button"
-      >
-        WiFi
-      </button>
-
-      <button
-        class="filter"
-        data-filter="Voice / Telephone"
-        type="button"
-      >
-        Voice / Telephone
-      </button>
-
-      <button
-        class="filter"
-        data-filter="System / PC"
-        type="button"
-      >
-        System / PC
-      </button>
-
-      <button
-        class="filter"
-        data-filter="CCTV / Surveillance"
-        type="button"
-      >
-        CCTV
-      </button>
-
-      <button
-        class="filter"
-        data-filter="Printer"
-        type="button"
-      >
-        Printer
-      </button>
-
-    </div>
-
-
-    <div
-      class="faq-list"
-      id="faqList"
-    ></div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-       COMPLAINT FORM
-       ======================================================== -->
-
-  <section>
-
-    <div class="section-label">
-      02 — Still stuck?
-    </div>
-
-    <h2>
-      File a complaint
-    </h2>
-
-    <p class="section-intro">
-      This goes straight into the helpdesk log — a technician
-      will follow up using the contact information you provide.
-    </p>
-
-
-    <div class="form-card">
-
-
-      <form
-        id="complaintForm"
-        novalidate
-      >
-
-
-        <div class="form-grid">
-
-
-          <!-- NAME -->
-
-          <div class="field">
-
-            <label for="name">
-              Your name
-              <span class="required">*</span>
-            </label>
-
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              placeholder="Enter your full name"
-              required
-            >
-
+        <div>
+          <div class="brand-title">
+            Mehran University of Engineering &amp; Technology
           </div>
 
+          <div class="brand-subtitle">
+            Jamshoro
+          </div>
+        </div>
+
+      </div>
+
+      <div class="kicker">
+        Campus IT Helpdesk
+      </div>
+
+      <h1>
+        Something not working?
+      </h1>
+
+      <p>
+        Check the quick fixes below first — most connectivity and
+        system issues clear up without a ticket. If it doesn't,
+        file a complaint at the bottom and our team picks it up
+        directly from this form.
+      </p>
+
+    </div>
+
+  </header>
 
 
-          <!-- CONTACT -->
+  <main>
 
-          <div class="field">
+    <section>
 
-            <label for="contact">
-              Contact / Cell #
-              <span class="required">*</span>
-            </label>
+      <div class="section-label">
+        01 — Before you file a ticket
+      </div>
 
-            <input
-              id="contact"
-              name="contact"
-              type="tel"
-              autocomplete="tel"
-              placeholder="03XX-XXXXXXX"
-              required
-            >
+      <h2>
+        Try these fixes first
+      </h2>
 
-            <div class="field-help">
-              A technician will use this number to contact you.
+      <p class="section-intro">
+        A few quick checks can resolve common campus IT problems
+        without waiting for a technician.
+      </p>
+
+      <div class="filters">
+
+        <button class="filter active" data-filter="all" type="button">
+          All
+        </button>
+
+        <button class="filter" data-filter="Internet / Data" type="button">
+          Internet / Data
+        </button>
+
+        <button class="filter" data-filter="WiFi" type="button">
+          WiFi
+        </button>
+
+        <button class="filter" data-filter="Voice / Telephone" type="button">
+          Voice / Telephone
+        </button>
+
+        <button class="filter" data-filter="System / PC" type="button">
+          System / PC
+        </button>
+
+        <button class="filter" data-filter="CCTV / Surveillance" type="button">
+          CCTV
+        </button>
+
+        <button class="filter" data-filter="Printer" type="button">
+          Printer
+        </button>
+
+      </div>
+
+      <div class="faq-list" id="faqList"></div>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-label">
+        02 — Still stuck?
+      </div>
+
+      <h2>
+        File a complaint
+      </h2>
+
+      <p class="section-intro">
+        This goes straight into the helpdesk log — a technician
+        will follow up using the contact information you provide.
+      </p>
+
+      <div class="form-card">
+
+        <form id="complaintForm">
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label for="name">
+                Your name <span class="required">*</span>
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Enter your full name"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="contact">
+                Contact / Cell # <span class="required">*</span>
+              </label>
+
+              <input
+                id="contact"
+                name="contact"
+                type="tel"
+                autocomplete="tel"
+                placeholder="03XX-XXXXXXX"
+                required
+              >
+
+              <div class="field-help">
+                A technician will use this number to contact you.
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="department">
+                Department / Location <span class="required">*</span>
+              </label>
+
+              <select id="department" name="department" required>
+
+                <option value="" selected disabled>
+                  Select department
+                </option>
+
+                <option>Examination Department</option>
+                <option>Electrical Department</option>
+                <option>Electrical Engineering</option>
+                <option>Civil Department</option>
+                <option>Mechanical Department</option>
+                <option>Textile Department</option>
+                <option>Architecture Department</option>
+                <option>Electronics Department</option>
+                <option>Chemical Department</option>
+                <option>Industrial Department</option>
+                <option>Irrigation Department</option>
+                <option>Telecom Department</option>
+                <option>Computer System</option>
+                <option>Registrar Office</option>
+                <option>Central Library</option>
+                <option>Accounts Section</option>
+                <option>Audit Section</option>
+                <option>Establishment</option>
+                <option>ORIC</option>
+                <option>BSRS</option>
+                <option>ELDC</option>
+                <option>Basic Science</option>
+                <option>Dean Faculty of Engineering</option>
+                <option>Hostel</option>
+                <option>Other</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="type">
+                Complaint type <span class="required">*</span>
+              </label>
+
+              <select id="type" name="type" required>
+
+                <option value="" selected disabled>
+                  Select complaint type
+                </option>
+
+                <option>Internet / Data</option>
+                <option>WiFi</option>
+                <option>Voice / Telephone</option>
+                <option>System / PC</option>
+                <option>CCTV / Surveillance</option>
+                <option>Printer</option>
+                <option>Network / Switch</option>
+                <option>Email</option>
+                <option>Other</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="description">
+                Describe the problem <span class="required">*</span>
+              </label>
+
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Tell us what happened, what you tried, and any error message you saw."
+                required
+              ></textarea>
+
             </div>
 
           </div>
 
 
+          <div class="ticket-preview">
 
-          <!-- DEPARTMENT -->
+            <div>
+              <div class="ticket-preview-label">
+                Your reference will be generated automatically
+              </div>
 
-          <div class="field">
-
-            <label for="department">
-              Department / Location
-              <span class="required">*</span>
-            </label>
-
-            <select
-              id="department"
-              name="department"
-              required
-            >
-
-              <option
-                value=""
-                selected
-                disabled
-              >
-                Select department
-              </option>
-
-              <option>Examination Department</option>
-              <option>Electrical Department</option>
-              <option>Electrical Engineering</option>
-              <option>Civil Department</option>
-              <option>Mechanical Department</option>
-              <option>Textile Department</option>
-              <option>Architecture Department</option>
-              <option>Electronics Department</option>
-              <option>Chemical Department</option>
-              <option>Industrial Department</option>
-              <option>Irrigation Department</option>
-              <option>Telecom Department</option>
-              <option>Computer System</option>
-              <option>Registrar Office</option>
-              <option>Central Library</option>
-              <option>Accounts Section</option>
-              <option>Audit Section</option>
-              <option>Establishment</option>
-              <option>ORIC</option>
-              <option>BSRS</option>
-              <option>ELDC</option>
-              <option>Basic Science</option>
-              <option>Dean Faculty of Engineering</option>
-              <option>Hostel</option>
-              <option>Other</option>
-
-            </select>
-
-          </div>
-
-
-
-          <!-- TYPE -->
-
-          <div class="field">
-
-            <label for="type">
-              Complaint type
-              <span class="required">*</span>
-            </label>
-
-            <select
-              id="type"
-              name="type"
-              required
-            >
-
-              <option
-                value=""
-                selected
-                disabled
-              >
-                Select complaint type
-              </option>
-
-              <option>Internet / Data</option>
-              <option>WiFi</option>
-              <option>Voice / Telephone</option>
-              <option>System / PC</option>
-              <option>CCTV / Surveillance</option>
-              <option>Printer</option>
-              <option>Network / Switch</option>
-              <option>Email</option>
-              <option>Other</option>
-
-            </select>
-
-          </div>
-
-
-
-          <!-- DESCRIPTION -->
-
-          <div class="field full">
-
-            <label for="description">
-              Describe the problem
-              <span class="required">*</span>
-            </label>
-
-            <textarea
-              id="description"
-              name="description"
-              placeholder="Tell us what happened, what you tried, and any error message you saw."
-              required
-            ></textarea>
-
-          </div>
-
-
-        </div>
-
-
-
-        <!-- TICKET PREVIEW -->
-
-        <div class="ticket-preview">
-
-          <div>
-
-            <div class="ticket-preview-label">
-              Your reference will be generated automatically
+              <strong>
+                Complaint Reference
+              </strong>
             </div>
 
-            <strong>
-              Complaint Reference
-            </strong>
+            <div id="ticketPreview">
+              TCK-••••••••
+            </div>
 
           </div>
 
-          <div id="ticketPreview">
-            TCK-••••••••
+
+          <div class="submit-row">
+
+            <button
+              type="submit"
+              class="submit-btn"
+              id="submitBtn"
+            >
+              Submit complaint
+            </button>
+
           </div>
 
-        </div>
+
+          <div
+            class="status-msg"
+            id="statusMsg"
+          ></div>
 
 
+          <div
+            class="success-ticket"
+            id="successTicket"
+          >
 
-        <!-- SUBMIT -->
+            <div class="success-small">
+              Complaint submitted successfully
+            </div>
 
-        <div class="submit-row">
+            <div
+              class="success-number"
+              id="successComplaintNo"
+            >
+              —
+            </div>
+
+            <div
+              class="success-message"
+              id="successDetails"
+            >
+              Your complaint has been recorded in the MUET
+              Campus IT Helpdesk log.
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    Reports save directly to the helpdesk log
+    · a technician will contact you at the number provided
+  </footer>
+
+
+  <!-- Hidden iframe used for CORS-safe submission -->
+  <iframe
+    name="helpdeskSubmitFrame"
+    id="helpdeskSubmitFrame"
+    style="display:none;width:0;height:0;border:0;"
+  ></iframe>
+
+
+  <script>
+
+    /* ========================================================
+       NEW GOOGLE APPS SCRIPT WEB APP URL
+       ======================================================== */
+
+    const WEB_APP_URL =
+      'https://script.google.com/macros/s/AKfycbyG_tI1szY6ABv4-WqReTMcZmU2zxSyQLHthNNO_SIJ1e_TsY_E-npe62f2qiIYpVqgWQ/exec';
+
+
+    /* ========================================================
+       FAQ DATA
+       ======================================================== */
+
+    const faqData = [
+
+      {
+        category: 'Internet / Data',
+        title: 'Internet is down at my desk',
+        answer:
+          'Check that the network cable is firmly connected and that the Ethernet indicator is active. Try another network cable or network port if available. If other users in the same area also have no connectivity, submit a complaint so ICPC can check the switch or upstream connection.'
+      },
+
+      {
+        category: 'Internet / Data',
+        title: 'Internet is slow or keeps dropping',
+        answer:
+          'Check whether the issue affects only one computer or multiple users. Restart the network adapter and check the cable connection. If the problem continues, provide the department/location and approximate time of the problem in your complaint.'
+      },
+
+      {
+        category: 'WiFi',
+        title: "Can't connect to eduroam on your phone",
+        answer:
+          'Make sure WiFi is enabled and select eduroam from the available networks. Forget the saved eduroam profile and reconnect if authentication repeatedly fails. Check that your university account credentials are correct.'
+      },
+
+      {
+        category: 'WiFi',
+        title: 'WiFi connects but has no internet',
+        answer:
+          'Disconnect and reconnect to WiFi. Check whether another device can access the internet from the same location. If WiFi shows connected but internet access remains unavailable, report your exact location and WiFi network name.'
+      },
+
+      {
+        category: 'Voice / Telephone',
+        title: 'Extension has no dial tone',
+        answer:
+          'Check the telephone cable and handset connection. Try another handset if one is available. If there is still no dial tone, submit a Voice / Telephone complaint and include the extension number in the description.'
+      },
+
+      {
+        category: 'Voice / Telephone',
+        title: 'Can dial internally but not outside lines',
+        answer:
+          'If internal extensions work but external calls fail, the issue may be related to the telephone exchange or outside-line configuration. Submit a Voice / Telephone complaint and mention the number you attempted to call.'
+      },
+
+      {
+        category: 'System / PC',
+        title: 'PC is slow or acting up',
+        answer:
+          'Restart the computer first. Close applications that are not required and check whether the problem occurs after every restart. If the issue continues, provide the computer/location details and describe the symptoms.'
+      },
+
+      {
+        category: 'CCTV / Surveillance',
+        title: 'Camera feed is frozen or offline',
+        answer:
+          'Note the camera location and approximate time the feed stopped. Do not disconnect CCTV equipment. Submit a CCTV / Surveillance complaint so the technical team can inspect the camera, network connection, or recording system.'
+      },
+
+      {
+        category: 'Printer',
+        title: 'Printer not printing',
+        answer:
+          'Check that the printer is powered on and connected. Verify paper and toner status and make sure the correct printer is selected on your computer. If the problem remains, submit a Printer complaint with the printer location/name.'
+      }
+
+    ];
+
+
+    /* ========================================================
+       FAQ RENDERING
+       ======================================================== */
+
+    const faqList =
+      document.getElementById('faqList');
+
+
+    function renderFAQs(filter = 'all') {
+
+      faqList.innerHTML = '';
+
+
+      const filtered =
+        filter === 'all'
+          ? faqData
+          : faqData.filter(
+              item => item.category === filter
+            );
+
+
+      filtered.forEach(item => {
+
+        const faq =
+          document.createElement('div');
+
+        faq.className = 'faq';
+
+
+        faq.innerHTML = `
 
           <button
-            type="submit"
-            class="submit-btn"
-            id="submitBtn"
+            type="button"
+            aria-expanded="false"
           >
-            Submit complaint
+
+            <span>
+
+              <span class="faq-category">
+                ${item.category}
+              </span>
+
+              <span class="faq-title">
+                ${item.title}
+              </span>
+
+            </span>
+
+            <span class="faq-icon">
+              +
+            </span>
+
           </button>
 
-        </div>
 
-
-
-        <!-- STATUS -->
-
-        <div
-          class="status-msg"
-          id="statusMsg"
-        ></div>
-
-
-
-        <!-- EXACT GENERATED TICKET -->
-
-        <div
-          class="success-ticket"
-          id="successTicket"
-        >
-
-          <div class="success-small">
-            Complaint submitted successfully
+          <div class="faq-answer">
+            ${item.answer}
           </div>
 
-          <div
-            class="success-number"
-            id="successComplaintNo"
-          >
-            —
-          </div>
+        `;
 
-          <div
-            class="success-message"
-            id="successDetails"
-          >
-            Your complaint has been recorded in the MUET
-            Campus IT Helpdesk log.
-          </div>
 
-        </div>
+        const button =
+          faq.querySelector('button');
 
+        const icon =
+          faq.querySelector('.faq-icon');
 
-      </form>
 
-    </div>
+        button.addEventListener('click', () => {
 
-  </section>
+          const isOpen =
+            faq.classList.toggle('open');
 
 
-</main>
-
-
-
-<!-- ==========================================================
-     FOOTER
-     ========================================================== -->
-
-<footer>
-
-  Reports save directly to the helpdesk log
-  · a technician will contact you at the number provided
-
-</footer>
-
-
-
-<!-- ==========================================================
-     HIDDEN IFRAME
-     ========================================================== -->
-
-<iframe
-  name="helpdeskSubmitFrame"
-  id="helpdeskSubmitFrame"
-  style="
-    display:none;
-    width:0;
-    height:0;
-    border:0;
-  "
-></iframe>
-
-
-
-<script>
-
-
-/* ============================================================
-   GOOGLE APPS SCRIPT WEB APP URL
-   ============================================================ */
-
-const WEB_APP_URL =
-  'https://script.google.com/macros/s/AKfycbyborG0mwbKw3ZlS2joa_0vINKSofPP-85LmzaXe7SmadSY5hAgCyVWjX4U3Omh3Ltm/exec';
-
-
-
-/* ============================================================
-   FAQ DATA
-   ============================================================ */
-
-const faqData = [
-
-  {
-    category: 'Internet / Data',
-    title: 'Internet is down at my desk',
-    answer:
-      'Check that the network cable is firmly connected and that the Ethernet indicator is active. Try another network cable or network port if available. If other users in the same area also have no connectivity, submit a complaint so ICPC can check the switch or upstream connection.'
-  },
-
-  {
-    category: 'Internet / Data',
-    title: 'Internet is slow or keeps dropping',
-    answer:
-      'Check whether the issue affects only one computer or multiple users. Restart the network adapter and check the cable connection. If the problem continues, provide the department/location and approximate time of the problem in your complaint.'
-  },
-
-  {
-    category: 'WiFi',
-    title: "Can't connect to eduroam on your phone",
-    answer:
-      'Make sure WiFi is enabled and select eduroam from the available networks. Forget the saved eduroam profile and reconnect if authentication repeatedly fails. Check that your university account credentials are correct.'
-  },
-
-  {
-    category: 'WiFi',
-    title: 'WiFi connects but has no internet',
-    answer:
-      'Disconnect and reconnect to WiFi. Check whether another device can access the internet from the same location. If WiFi shows connected but internet access remains unavailable, report your exact location and WiFi network name.'
-  },
-
-  {
-    category: 'Voice / Telephone',
-    title: 'Extension has no dial tone',
-    answer:
-      'Check the telephone cable and handset connection. Try another handset if one is available. If there is still no dial tone, submit a Voice / Telephone complaint and include the extension number in the description.'
-  },
-
-  {
-    category: 'Voice / Telephone',
-    title: 'Can dial internally but not outside lines',
-    answer:
-      'If internal extensions work but external calls fail, the issue may be related to the telephone exchange or outside-line configuration. Submit a Voice / Telephone complaint and mention the number you attempted to call.'
-  },
-
-  {
-    category: 'System / PC',
-    title: 'PC is slow or acting up',
-    answer:
-      'Restart the computer first. Close applications that are not required and check whether the problem occurs after every restart. If the issue continues, provide the computer/location details and describe the symptoms.'
-  },
-
-  {
-    category: 'CCTV / Surveillance',
-    title: 'Camera feed is frozen or offline',
-    answer:
-      'Note the camera location and approximate time the feed stopped. Do not disconnect CCTV equipment. Submit a CCTV / Surveillance complaint so the technical team can inspect the camera, network connection, or recording system.'
-  },
-
-  {
-    category: 'Printer',
-    title: 'Printer not printing',
-    answer:
-      'Check that the printer is powered on and connected. Verify paper and toner status and make sure the correct printer is selected on your computer. If the problem remains, submit a Printer complaint with the printer location/name.'
-  }
-
-];
-
-
-
-/* ============================================================
-   FAQ RENDERING
-   ============================================================ */
-
-const faqList =
-  document.getElementById('faqList');
-
-
-function renderFAQs(filter = 'all') {
-
-  faqList.innerHTML = '';
-
-
-  const filtered = filter === 'all'
-    ? faqData
-    : faqData.filter(
-        item => item.category === filter
-      );
-
-
-  filtered.forEach((item) => {
-
-    const faq = document.createElement('div');
-
-    faq.className = 'faq';
-
-
-    faq.innerHTML = `
-
-      <button
-        type="button"
-        aria-expanded="false"
-      >
-
-        <span>
-
-          <span class="faq-category">
-            ${item.category}
-          </span>
-
-          <span class="faq-title">
-            ${item.title}
-          </span>
-
-        </span>
-
-        <span class="faq-icon">
-          +
-        </span>
-
-      </button>
-
-
-      <div class="faq-answer">
-        ${item.answer}
-      </div>
-
-    `;
-
-
-    const button =
-      faq.querySelector('button');
-
-    const icon =
-      faq.querySelector('.faq-icon');
-
-
-    button.addEventListener(
-      'click',
-      () => {
-
-        const isOpen =
-          faq.classList.toggle('open');
-
-
-        button.setAttribute(
-          'aria-expanded',
-          isOpen ? 'true' : 'false'
-        );
-
-
-        icon.textContent =
-          isOpen ? '−' : '+';
-
-      }
-    );
-
-
-    faqList.appendChild(faq);
-
-  });
-
-}
-
-
-renderFAQs();
-
-
-
-/* ============================================================
-   FAQ FILTER BUTTONS
-   ============================================================ */
-
-document
-  .querySelectorAll('.filter')
-  .forEach(button => {
-
-    button.addEventListener(
-      'click',
-      () => {
-
-        document
-          .querySelectorAll('.filter')
-          .forEach(btn =>
-            btn.classList.remove('active')
+          button.setAttribute(
+            'aria-expanded',
+            isOpen ? 'true' : 'false'
           );
 
 
-        button.classList.add('active');
+          icon.textContent =
+            isOpen ? '−' : '+';
+
+        });
 
 
-        renderFAQs(
-          button.dataset.filter
-        );
+        faqList.appendChild(faq);
 
-      }
-    );
+      });
 
-  });
-
-
-
-/* ============================================================
-   TICKET PREVIEW
-   ============================================================ */
-
-function makeTicketPreview() {
-
-  const now = new Date();
-
-
-  const yy =
-    String(now.getFullYear()).slice(-2);
-
-
-  const mm =
-    String(now.getMonth() + 1)
-      .padStart(2, '0');
-
-
-  const dd =
-    String(now.getDate())
-      .padStart(2, '0');
-
-
-  const hh =
-    String(now.getHours())
-      .padStart(2, '0');
-
-
-  const mi =
-    String(now.getMinutes())
-      .padStart(2, '0');
-
-
-  const ss =
-    String(now.getSeconds())
-      .padStart(2, '0');
-
-
-  return `TCK-${yy}${mm}${dd}-${hh}${mi}${ss}`;
-
-}
-
-
-document
-  .getElementById('ticketPreview')
-  .textContent = makeTicketPreview();
-
-
-
-/* ============================================================
-   FORM ELEMENTS
-   ============================================================ */
-
-const form =
-  document.getElementById('complaintForm');
-
-const submitBtn =
-  document.getElementById('submitBtn');
-
-const statusMsg =
-  document.getElementById('statusMsg');
-
-const successTicket =
-  document.getElementById('successTicket');
-
-const successComplaintNo =
-  document.getElementById('successComplaintNo');
-
-const successDetails =
-  document.getElementById('successDetails');
-
-
-
-/* ============================================================
-   HIDDEN FORM
-   ============================================================ */
-
-const hiddenForm =
-  document.createElement('form');
-
-
-hiddenForm.method = 'POST';
-
-hiddenForm.action = WEB_APP_URL;
-
-hiddenForm.target = 'helpdeskSubmitFrame';
-
-hiddenForm.style.display = 'none';
-
-
-document.body.appendChild(hiddenForm);
-
-
-
-/* ============================================================
-   RECEIVE RESPONSE FROM GOOGLE APPS SCRIPT
-   ============================================================ */
-
-window.addEventListener(
-  'message',
-  function(event) {
-
-    /*
-     * Apps Script may use a Google-origin URL after redirect.
-     * Therefore we intentionally don't hard-code one origin.
-     *
-     * The iframe is our submission target and the returned
-     * object must contain either success or error.
-     */
-
-    if (
-      !event.data ||
-      typeof event.data !== 'object'
-    ) {
-      return;
     }
 
 
-    const response = event.data;
+    renderFAQs();
 
 
-    if (
-      typeof response.success === 'undefined'
-    ) {
-      return;
-    }
+    /* ========================================================
+       FAQ FILTERS
+       ======================================================== */
+
+    document
+      .querySelectorAll('.filter')
+      .forEach(button => {
+
+        button.addEventListener('click', () => {
+
+          document
+            .querySelectorAll('.filter')
+            .forEach(btn =>
+              btn.classList.remove('active')
+            );
+
+
+          button.classList.add('active');
+
+
+          renderFAQs(
+            button.dataset.filter
+          );
+
+        });
+
+      });
 
 
 
     /* ========================================================
-       SUCCESS
+       LOCAL TICKET PREVIEW
        ======================================================== */
 
-    if (response.success) {
+    function makeTicketPreview() {
+
+      const now = new Date();
+
+      const yy =
+        String(now.getFullYear()).slice(-2);
+
+      const mm =
+        String(now.getMonth() + 1).padStart(2, '0');
+
+      const dd =
+        String(now.getDate()).padStart(2, '0');
+
+      const hh =
+        String(now.getHours()).padStart(2, '0');
+
+      const mi =
+        String(now.getMinutes()).padStart(2, '0');
+
+      const ss =
+        String(now.getSeconds()).padStart(2, '0');
+
+      return `TCK-${yy}${mm}${dd}-${hh}${mi}${ss}`;
+
+    }
+
+
+    document
+      .getElementById('ticketPreview')
+      .textContent = makeTicketPreview();
+
+
+
+    /* ========================================================
+       FORM ELEMENTS
+       ======================================================== */
+
+    const form =
+      document.getElementById('complaintForm');
+
+    const submitBtn =
+      document.getElementById('submitBtn');
+
+    const statusMsg =
+      document.getElementById('statusMsg');
+
+    const successTicket =
+      document.getElementById('successTicket');
+
+    const successComplaintNo =
+      document.getElementById('successComplaintNo');
+
+    const successDetails =
+      document.getElementById('successDetails');
+
+
+
+    /* ========================================================
+       HIDDEN FORM
+       ======================================================== */
+
+    const hiddenForm =
+      document.createElement('form');
+
+    hiddenForm.method = 'POST';
+
+    hiddenForm.action = WEB_APP_URL;
+
+    hiddenForm.target = 'helpdeskSubmitFrame';
+
+    hiddenForm.style.display = 'none';
+
+    document.body.appendChild(hiddenForm);
+
+
+
+    /* ========================================================
+       RECEIVE EXACT RESPONSE FROM APPS SCRIPT
+       ======================================================== */
+
+    window.addEventListener('message', function(event) {
+
+      if (
+        !event.data ||
+        typeof event.data !== 'object'
+      ) {
+        return;
+      }
+
+
+      const response = event.data;
+
+
+      if (
+        typeof response.success === 'undefined'
+      ) {
+        return;
+      }
+
+
+
+      /* ================= SUCCESS ================= */
+
+      if (response.success) {
+
+        submitBtn.disabled = false;
+
+        submitBtn.textContent =
+          'Submit complaint';
+
+
+        statusMsg.className =
+          'status-msg show ok';
+
+        statusMsg.textContent =
+          '✓ Complaint submitted successfully.';
+
+
+        const complaintNo =
+          response.complaintNo ||
+          'Not available';
+
+
+        const ticketId =
+          response.ticketId ||
+          ('TCK-' + complaintNo);
+
+
+        successComplaintNo.textContent =
+          complaintNo;
+
+
+        successDetails.innerHTML = `
+          <strong>${ticketId}</strong><br>
+          Status: Pending<br>
+          Your complaint has been recorded in the
+          MUET Campus IT Helpdesk log.
+        `;
+
+
+        successTicket.classList.add('show');
+
+
+        form.reset();
+
+
+        document
+          .getElementById('ticketPreview')
+          .textContent = makeTicketPreview();
+
+
+        setTimeout(() => {
+
+          successTicket.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+
+        }, 100);
+
+
+        return;
+
+      }
+
+
+
+      /* ================= SERVER ERROR ================= */
 
       submitBtn.disabled = false;
 
@@ -1759,209 +1215,80 @@ window.addEventListener(
 
 
       statusMsg.className =
-        'status-msg show ok';
+        'status-msg show err';
 
+      statusMsg.textContent =
+        response.error ||
+        'The helpdesk server could not process your request.';
 
-      statusMsg.innerHTML =
-        '✓ Complaint submitted successfully.';
-
-
-      /*
-       * EXACT COMPLAINT NUMBER FROM APPS SCRIPT
-       */
-
-      const complaintNo =
-        response.complaintNo ||
-        'Not available';
-
-
-      const ticketId =
-        response.ticketId ||
-        ('TCK-' + complaintNo);
-
-
-      successComplaintNo.textContent =
-        complaintNo;
-
-
-      successDetails.innerHTML =
-        `
-          <strong>${ticketId}</strong><br>
-          Status: Pending<br>
-          Your complaint has been recorded in the
-          MUET Campus IT Helpdesk log.
-        `;
-
-
-      successTicket.classList.add('show');
-
-
-      /*
-       * Reset form
-       */
-
-      form.reset();
-
-
-      /*
-       * Generate a new local preview
-       */
-
-      document
-        .getElementById('ticketPreview')
-        .textContent =
-          makeTicketPreview();
-
-
-      /*
-       * Scroll the exact Complaint Number into view
-       */
-
-      setTimeout(() => {
-
-        successTicket.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-
-      }, 100);
-
-
-      return;
-
-    }
+    });
 
 
 
     /* ========================================================
-       SERVER ERROR
+       FORM SUBMISSION
        ======================================================== */
 
-    submitBtn.disabled = false;
+    form.addEventListener('submit', function(e) {
 
-    submitBtn.textContent =
-      'Submit complaint';
-
-
-    statusMsg.className =
-      'status-msg show err';
+      e.preventDefault();
 
 
-    statusMsg.textContent =
-      response.error ||
-      'The helpdesk server could not process your request.';
+      if (!form.checkValidity()) {
 
-  }
-);
+        form.reportValidity();
 
+        return;
 
-
-/* ============================================================
-   FORM SUBMISSION
-   ============================================================ */
-
-form.addEventListener(
-  'submit',
-  function(e) {
-
-    e.preventDefault();
+      }
 
 
-    /*
-     * Browser validation
-     */
+      successTicket.classList.remove('show');
 
-    if (!form.checkValidity()) {
+      statusMsg.className =
+        'status-msg';
 
-      form.reportValidity();
-
-      return;
-
-    }
+      statusMsg.textContent =
+        '';
 
 
-    /*
-     * Hide previous success
-     */
+      submitBtn.disabled = true;
 
-    successTicket.classList.remove('show');
-
-
-    statusMsg.className =
-      'status-msg';
+      submitBtn.textContent =
+        'Submitting…';
 
 
-    statusMsg.textContent =
-      '';
+      hiddenForm.innerHTML = '';
 
 
-    /*
-     * Disable submit button
-     */
-
-    submitBtn.disabled = true;
-
-    submitBtn.textContent =
-      'Submitting…';
+      const formData =
+        new FormData(form);
 
 
+      for (
+        const [key, value]
+        of formData.entries()
+      ) {
 
-    /*
-     * Clear hidden form
-     */
+        const input =
+          document.createElement('input');
 
-    hiddenForm.innerHTML = '';
+        input.type = 'hidden';
 
+        input.name = key;
 
+        input.value = value;
 
-    /*
-     * Copy visible form values
-     * into hidden POST form
-     */
+        hiddenForm.appendChild(input);
 
-    const formData =
-      new FormData(form);
-
-
-    for (
-      const [key, value]
-      of formData.entries()
-    ) {
-
-      const input =
-        document.createElement('input');
+      }
 
 
-      input.type = 'hidden';
+      hiddenForm.submit();
 
-      input.name = key;
+    });
 
-      input.value = value;
-
-
-      hiddenForm.appendChild(input);
-
-    }
-
-
-
-    /*
-     * Submit to Google Apps Script
-     *
-     * NO fetch()
-     * NO no-cors
-     *
-     * This avoids the CORS problem.
-     */
-
-    hiddenForm.submit();
-
-  }
-);
-
-
-</script>
-
+  </script>
 
 </body>
 
