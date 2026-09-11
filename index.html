@@ -1,38 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Siraj Qureshi | Portfolio</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siraj Qureshi | Portfolio</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .portfolio-frame {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+    .quick-links {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 99999;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .quick-link {
+      display: block;
+      color: #ffffff;
+      padding: 18px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .quick-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    /* Blue */
+    .icpc {
+      background: #0066cc;
+    }
+
+    /* Green */
+    .password-reset {
+      background: #28a745;
+    }
+
+    /* Orange */
+    .complaint-portal {
+      background: #e67e22;
+    }
+
+    @media (max-width: 700px) {
+      .quick-links {
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+      }
+
+      .quick-link {
+        padding: 11px 16px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
-<body style="margin:0; height:100vh;">
+<body>
 
-  <!-- Your Portfolio Iframe -->
+  <!-- Portfolio -->
   <iframe
+    class="portfolio-frame"
     src="https://bespoke-folio-flair-73580.lovable.app"
-    width="100%"
-    height="100%"
-    style="border:none;">
+    title="Siraj Qureshi Portfolio">
   </iframe>
 
-  <!-- Quick links -->
-  <div style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
-    <a href="/icpc-request.html"
-       style="background: #0066cc; color: white; padding: 12px 24px;
-              border-radius: 8px; text-decoration: none; font-weight: bold;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  <!-- Quick Links -->
+  <div class="quick-links">
+
+    <!-- ICPC -->
+    <a
+      href="/icpc-request.html"
+      class="quick-link icpc">
       📋 ICPC Account Request
     </a>
-    <a href="/reset-password.html"
-       style="background: #28a745; color: white; padding: 12px 24px;
-              border-radius: 8px; text-decoration: none; font-weight: bold;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+
+    <!-- Password Reset -->
+    <a
+      href="/reset-password.html"
+      class="quick-link password-reset">
       🔐 MUET Password Reset
     </a>
-<a href="/Complaint-portal.html" class="quick-link complaint-portal">
+
+    <!-- Complaint Portal -->
+    <a
+      href="/Complaint-portal.html"
+      class="quick-link complaint-portal">
       📝 MUET Complaint Portal
     </a>
-    
+
   </div>
 
 </body>
