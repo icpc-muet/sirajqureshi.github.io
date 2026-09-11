@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Campus IT Helpdesk — Report an Issue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* MUET brand palette, sampled from the university seal */
+    --paper:#F7F5EF;
+    --paper-2:#EFECE2;
+    --ink:#1C1F26;
+    --muted:#6B7280;
+    --line:#D9D4C6;
+    --blue:#241463;      /* MUET navy/indigo */
+    --blue-deep:#170D42;
+    --leaf:#5FA22C;       /* MUET seal green */
+    --sky:#3E93B5;        /* MUET seal sky blue (bridge/water) */
+    --amber:#E2A233;
+    --green:#3D8361;
+    --red:#B8433A;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 90px;}
+
+  /* header */
+  header{padding:40px 0 30px;}
+  .brand-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+  .brand-row img{width:56px;height:56px;flex-shrink:0;}
+  .brand-row .brand-text{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--blue);line-height:1.5;}
+  .brand-row .brand-text b{display:block;font-size:13px;color:var(--blue-deep);letter-spacing:.04em;}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--sky);display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  }
+  .kicker::before{content:'';width:18px;height:2px;background:var(--leaf);display:inline-block;}
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(30px,5vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 14px;
+    color:var(--blue-deep);
+  }
+  header p{color:var(--muted);font-size:16px;line-height:1.6;max-width:560px;margin:0;}
+
+  /* section labels */
+  .section-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--blue);
+    display:flex;align-items:center;gap:10px;margin:56px 0 6px;
+  }
+  .section-tag .n{
+    width:24px;height:24px;border:1.5px solid var(--blue);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;
+  }
+  .section-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:23px;margin:0 0 6px 34px;color:var(--ink);}
+  .section-sub{color:var(--muted);font-size:14.5px;margin:0 0 22px 34px;max-width:560px;line-height:1.55;}
+
+  /* FAQ */
+  .faq-filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px 34px;}
+  .faq-filters button{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:6px 12px;border-radius:20px;
+    border:1px solid var(--line);background:var(--white);color:var(--muted);cursor:pointer;
+  }
+  .faq-filters button.active{background:var(--blue);border-color:var(--blue);color:#fff;}
+  .faq-list{
+    margin-left:34px;background:var(--white);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;
+  }
+  .faq-item{padding:0 20px;}
+  .faq-item + .faq-item{border-top:1px solid rgba(28,31,38,0.06);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:var(--ink);
+  }
+  .faq-q .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--blue);
+    border:1px solid var(--blue);border-radius:3px;padding:2px 6px;flex-shrink:0;text-transform:uppercase;
+  }
+  .faq-q .icon{font-size:18px;color:var(--muted);transition:transform .15s;flex-shrink:0;}
+  .faq-item.open .faq-q .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .2s ease;}
+  .faq-item.open .faq-a{max-height:280px;}
+  .faq-a-inner{padding:0 0 18px 0;color:var(--muted);font-size:14.5px;line-height:1.65;max-width:600px;}
+  .faq-a-inner ol, .faq-a-inner ul{margin:6px 0 0;padding-left:20px;}
+  .faq-empty{margin-left:34px;color:var(--muted);font-size:14px;padding:14px 0;}
+
+  /* form */
+  form{margin-left:34px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:28px 28px 24px;position:relative;}
+  .ticket-corner{
+    position:absolute;top:-1px;right:24px;background:var(--amber);color:var(--blue-deep);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 10px;border-radius:0 0 6px 6px;
+    letter-spacing:.05em;
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;
+    letter-spacing:.06em;color:var(--muted);margin-bottom:7px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;border:1px solid var(--line);border-radius:6px;padding:10px 12px;
+    font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);background:var(--paper);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(34,68,155,0.12);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .hint{font-size:12px;color:var(--muted);margin-top:5px;}
+
+  .submit-btn{
+    width:100%;padding:13px;border:none;border-radius:6px;background:var(--blue);color:#fff;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;cursor:pointer;
+    transition:background .15s;
+  }
+  .submit-btn:hover{background:var(--blue-deep);}
+  .submit-btn:disabled{background:var(--muted);cursor:not-allowed;}
+
+  .status-msg{
+    margin-top:16px;padding:14px 16px;border-radius:8px;font-size:14px;display:none;
+  }
+  .status-msg.show{display:block;}
+  .status-msg.ok{background:rgba(61,131,97,0.1);color:var(--green);border:1px solid rgba(61,131,97,0.3);}
+  .status-msg.err{background:rgba(184,67,58,0.1);color:var(--red);border:1px solid rgba(184,67,58,0.3);}
+  .status-msg .tid{font-family:'IBM Plex Mono',monospace;font-weight:600;}
+
+  footer{margin:60px 0 0 34px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
+
+  @media(max-width:600px){
+    .row2{grid-template-columns:1fr;}
+    form, .faq-list, .faq-filters, .faq-empty, footer{margin-left:0;}
+    .section-title, .section-sub{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand-row">
+      <img src="data:image/png;base64,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" alt="Mehran University of Engineering and Technology logo">
+      <div class="brand-text"><b>Mehran University of Engineering &amp; Technology</b>Jamshoro</div>
+    </div>
+    <div class="kicker">Campus IT Helpdesk</div>
+    <h1>Something not working?</h1>
+    <p>Check the quick fixes below first — most connectivity and system issues clear up without a ticket. If it doesn't, file a complaint at the bottom and our team picks it up directly from this form.</p>
+  </header>
+
+  <!-- ============ FAQ ============ -->
+  <div class="section-tag"><span class="n">1</span>BEFORE YOU FILE A TICKET</div>
+  <div class="section-title">Try these fixes first</div>
+  <p class="section-sub">Placeholder troubleshooting steps below — swap these in for your team's actual resolution steps whenever you're ready to send them over.</p>
+
+  <div class="faq-filters" id="faqFilters"></div>
+  <div class="faq-list" id="faqList"></div>
+  <div class="faq-empty" id="faqEmpty" style="display:none;">No quick fixes filed under this category yet.</div>
+
+  <!-- ============ FORM ============ -->
+  <div class="section-tag"><span class="n">2</span>STILL STUCK?</div>
+  <div class="section-title">File a complaint</div>
+  <p class="section-sub">This goes straight into the helpdesk log — a technician will follow up using the contact info you give below.</p>
+
+  <form id="complaintForm">
+    <div class="ticket-corner" id="ticketPreview">TCK-PREVIEW</div>
+
+    <div class="row2">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required placeholder="e.g. Imran Shaikh">
+      </div>
+      <div class="field">
+        <label for="contact">Ext / cell number</label>
+        <input type="text" id="contact" name="contact" required placeholder="e.g. 4701 or 03xx-xxxxxxx">
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="field">
+        <label for="department">Department / location</label>
+        <select id="department" name="department" required>
+          <option value="" disabled selected>Select department</option>
+          <option>Examination Department</option>
+          <option>Electrical Department</option>
+          <option>Electrical Engineering</option>
+          <option>Civil Department</option>
+          <option>Mechanical Department</option>
+          <option>Textile Department</option>
+          <option>Architecture Department</option>
+          <option>Electronics Department</option>
+          <option>Chemical Department</option>
+          <option>Industrial Department</option>
+          <option>Irrigation Department</option>
+          <option>Telecom Department</option>
+          <option>Computer System</option>
+          <option>Registrar Office</option>
+          <option>Central Library</option>
+          <option>Accounts Section</option>
+          <option>Audit Section</option>
+          <option>Establishment</option>
+          <option>ORIC</option>
+          <option>BSRS</option>
+          <option>ELDC</option>
+          <option>Basic Science</option>
+          <option>Dean Faculty of Engineering</option>
+          <option>Hostel</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="type">Type of complaint</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Select type</option>
+          <option>Internet / Data</option>
+          <option>WiFi</option>
+          <option>Voice / Telephone</option>
+          <option>System / PC</option>
+          <option>CCTV / Surveillance</option>
+          <option>Printer</option>
+          <option>Network / Switch</option>
+          <option>Email</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="description">Describe the issue</label>
+      <textarea id="description" name="description" required placeholder="What's happening? Since when? Anything you already tried?"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">Submit complaint</button>
+    <div class="status-msg" id="statusMsg"></div>
+  </form>
+
+  <footer>Reports save directly to the helpdesk log · a technician will contact you at the number provided</footer>
+
+</div>
+
+<script>
+/* ================= CONFIG ================= */
+// Paste the Web App URL you get after deploying Code.gs (see setup notes).
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwhJmIAIUukHU5TQ152o-73R0icchR9kNf2SZDmpYikk-4sb2SK3Chwqxyzzkmwu4Bk/exec';
+
+/* ================= FAQ DATA =================
+   Placeholder entries grouped by category, matching the complaint types
+   above. Replace `text` (and add/remove entries) with your team's real
+   steps whenever you send them over — structure can stay the same. */
+const FAQ_DATA = [
+  { category: 'Internet / Data', q: 'Internet is down at my desk', a: `<ol>
+      <li>Check the patch cable is seated firmly at both the wall port and your PC.</li>
+      <li>Restart your PC's network adapter (disable/enable it, or reboot).</li>
+      <li>Ask a neighbouring desk if they're also affected — if yes, it's likely a switch/floor issue, not your PC.</li>
+    </ol>` },
+  { category: 'Internet / Data', q: 'Internet is slow or keeps dropping', a: `<ul>
+      <li>Close large downloads/streams running on the same connection.</li>
+      <li>Try a wired connection if you're currently on WiFi.</li>
+      <li>Note the exact time it drops — it helps us match it against network logs.</li>
+    </ul>` },
+  { category: 'WiFi', q: "Can't connect to eduroam on your phone", a: `<p>Most mobile WiFi complaints come down to the enterprise network settings not being entered correctly. Add the <b>eduroam</b> network manually with these settings:</p><ol>
+      <li>Security: <b>WPA/WPA2-Enterprise</b></li>
+      <li>EAP method: <b>PEAP</b></li>
+      <li>Phase 2 authentication: <b>MSCHAPV2</b></li>
+      <li>CA certificate: <b>Use system certificates</b></li>
+      <li>Online certificate status: <b>Do not verify</b></li>
+      <li>Domain: <b>muet.edu.pk</b></li>
+      <li>Identity: <b>your.name@muet.edu.pk</b> (your MUET email)</li>
+      <li>Anonymous identity: leave blank</li>
+      <li>Password: your MUET account password</li>
+    </ol><p>If it still won't connect after entering these exactly, file a ticket.</p>` },
+  { category: 'WiFi', q: 'WiFi connects but has no internet', a: `<p>This usually means the access point itself has lost its uplink. Try a different WiFi zone nearby — if that also fails, it's a network-side issue, so go ahead and file a ticket.</p>` },
+  { category: 'Voice / Telephone', q: 'Extension has no dial tone', a: `<ol>
+      <li>Check the handset cable is plugged in at both ends.</li>
+      <li>Try the handset on a neighbouring working extension to rule out a faulty phone.</li>
+      <li>If the line was recently moved or the desk changed, mention that in your ticket.</li>
+    </ol>` },
+  { category: 'Voice / Telephone', q: 'Can dial internally but not outside lines', a: `<p>This is usually a PBX routing/permission setting on your extension rather than a fault — file a ticket with your extension number and we'll check its outbound access.</p>` },
+  { category: 'System / PC', q: "PC is slow or acting up", a: `<ol>
+      <li>Check your RAM usage (Task Manager on Windows, Activity Monitor on Mac) — if it's maxed out, close unused programs or ask about a RAM upgrade.</li>
+      <li>If it's a Windows issue (errors, crashes, won't update), it's usually faster to take it to a PC repair shop directly rather than wait on a ticket.</li>
+      <li>If neither of those explains it, file a ticket with what you're seeing.</li>
+    </ol>` },
+  { category: 'CCTV / Surveillance', q: 'Camera feed is frozen or offline', a: `<p>Most CCTV outages come down to the power adapter or the main electric power to the camera, not the camera itself. Ask your department's electrician to check the power supply first — that resolves it in most cases. If power is confirmed fine and the feed is still down, then file a complaint with the Registrar.</p>` },
+  { category: 'Printer', q: 'Printer not printing', a: `<ol>
+      <li>Check for a paper jam or empty tray.</li>
+      <li>Confirm the printer shows "online" in your PC's printer list.</li>
+      <li>Try printing a test page directly from the printer's panel.</li>
+    </ol>` },
+];
+
+/* ================= FAQ RENDER ================= */
+const categories = ['All', ...new Set(FAQ_DATA.map(f => f.category))];
+const filtersEl = document.getElementById('faqFilters');
+const listEl = document.getElementById('faqList');
+const emptyEl = document.getElementById('faqEmpty');
+let activeCategory = 'All';
+
+function renderFilters(){
+  filtersEl.innerHTML = categories.map(c =>
+    `<button data-cat="${c}" class="${c===activeCategory?'active':''}">${c}</button>`
+  ).join('');
+  filtersEl.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeCategory = btn.dataset.cat;
+      renderFilters();
+      renderList();
+    });
+  });
+}
+
+function renderList(){
+  const items = FAQ_DATA.filter(f => activeCategory==='All' || f.category===activeCategory);
+  emptyEl.style.display = items.length ? 'none' : 'block';
+  listEl.innerHTML = items.map((f,i)=>`
+    <div class="faq-item" data-i="${i}">
+      <button class="faq-q" type="button">
+        <span>${f.q}</span>
+        <span style="display:flex;align-items:center;gap:10px;">
+          <span class="tag">${f.category}</span>
+          <span class="icon">+</span>
+        </span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+    </div>
+  `).join('');
+  listEl.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click', ()=>{
+      item.classList.toggle('open');
+    });
+  });
+}
+renderFilters();
+renderList();
+
+/* ================= TICKET PREVIEW ================= */
+function makeTicketPreview(){
+  const d = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  return 'TCK-' + String(d.getFullYear()).slice(2) + pad(d.getMonth()+1) + pad(d.getDate()) + '-' + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+}
+document.getElementById('ticketPreview').textContent = makeTicketPreview();
+
+/* ================= FORM SUBMIT ================= */
+const form = document.getElementById('complaintForm');
+const submitBtn = document.getElementById('submitBtn');
+const statusMsg = document.getElementById('statusMsg');
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+
+  if (WEB_APP_URL.indexOf('PASTE_YOUR') === 0) {
+    statusMsg.className = 'status-msg show err';
+    statusMsg.innerHTML = "This form isn't connected to a sheet yet — paste your Apps Script Web App URL into the WEB_APP_URL constant in this file.";
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+  statusMsg.className = 'status-msg';
+
+  const data = new URLSearchParams(new FormData(form));
+
+  try {
+    const res = await fetch(WEB_APP_URL, { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.success) {
+      statusMsg.className = 'status-msg show ok';
+      statusMsg.innerHTML = `Submitted — reference <span class="tid">${json.ticketId}</span>. A technician will reach out on the number you gave.`;
+      form.reset();
+      document.getElementById('ticketPreview').textContent = makeTicketPreview();
+    } else {
+      throw new Error(json.error || 'Unknown error');
+    }
+  } catch (err) {
+    statusMsg.className = 'status-msg show err';
+    statusMsg.textContent = "Couldn't submit — check your connection and try again.";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit complaint';
+  }
+});
+</script>
+</body>
+</html>
