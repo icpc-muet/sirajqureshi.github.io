@@ -362,7 +362,7 @@ form.addEventListener('submit', async (e)=>{
   const data = new URLSearchParams(new FormData(form));
 
   try {
-    const res = await fetch(WEB_APP_URL, { method: 'POST', body: data });
+    const res = await fetch(https://script.google.com/macros/s/AKfycbyborG0mwbKw3ZlS2joa_0vINKSofPP-85LmzaXe7SmadSY5hAgCyVWjX4U3Omh3Ltm/exec, { method: 'POST', body: data });
     const json = await res.json();
     if (json.success) {
       statusMsg.className = 'status-msg show ok';
