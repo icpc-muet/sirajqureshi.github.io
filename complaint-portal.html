@@ -247,7 +247,7 @@
 <script>
 /* ================= CONFIG ================= */
 // Paste the Web App URL you get after deploying Code.gs (see setup notes).
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwhJmIAIUukHU5TQ152o-73R0icchR9kNf2SZDmpYikk-4sb2SK3Chwqxyzzkmwu4Bk/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyborG0mwbKw3ZlS2joa_0vINKSofPP-85LmzaXe7SmadSY5hAgCyVWjX4U3Omh3Ltm/exec';
 
 /* ================= FAQ DATA =================
    Placeholder entries grouped by category, matching the complaint types
@@ -355,7 +355,7 @@ const statusMsg = document.getElementById('statusMsg');
 form.addEventListener('submit', async (e)=>{
   e.preventDefault();
 
-  if (WEB_APP_URL.indexOf('PASTE_YOUR') === 0) {
+  if (WEB_APP_URL.indexOf('https://script.google.com/macros/s/AKfycbyborG0mwbKw3ZlS2joa_0vINKSofPP-85LmzaXe7SmadSY5hAgCyVWjX4U3Omh3Ltm/exec') === 0) {
     statusMsg.className = 'status-msg show err';
     statusMsg.innerHTML = "This form isn't connected to a sheet yet — paste your Apps Script Web App URL into the WEB_APP_URL constant in this file.";
     return;
